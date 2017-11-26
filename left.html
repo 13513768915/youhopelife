@@ -1,0 +1,574 @@
+<!DOCTYPE>
+<html ng-app="a" ng-controller="c">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="shortcut icon" href="./img/logo.ico" />
+		<link rel="stylesheet" type="text/css" href="css/left.css" />
+		<link rel="stylesheet" type="text/css" href="css/tmp.css"/>
+		<link rel="stylesheet" type="text/css" href="css/layer.css"/>
+	</head>
+
+	<body>
+		<!--头部引用-->
+		<div ng-include="'template/header.html'"></div>
+
+		<div class="big">
+			<div class="left">
+				<div class="left-mark">
+					<i class="icon user"></i> 个人中心
+				</div>
+				<ul>
+					<li>
+						<h3>交易管理</h3></li>
+					<li><span>我的账户</span></li>
+					<li><span>我的订单</span></li>
+					<li><span>我的积分</span></li>
+					<li><span>我的易和券</span></li>
+					<li>
+						<h3>会员资料<i class="icon right1"></i></h3></li>
+					<li><span>个人资料</span></li>
+					<li><span>地址管理</span></li>
+					<li><span>我的收藏</span></li>
+					<li><span>最近浏览</span></li>
+					<li><span>修改密码</span></li>
+					<li>
+						<h3>站内信<i class="icon right1"></i></h3></li>
+					<li><span>我的消息</span></li>
+				</ul>
+			</div>
+
+			<div class="fff" style="display: block;">
+				<div class="right">
+					<div class="right-list">
+						<div class="user-date">
+							<div class="person">
+								<img class="cover" src="img/other/bg.jpg" /> <span><a href="#" style="color: orangered;text-decoration: none;">上善若水</a></span>,您好
+								<a href=""></a>
+							</div>
+							<div class="date-list">
+								<div class="item">
+									<span class="item t">当前积分</span>
+									<span>888</span>
+								</div>
+								<div class="item">
+									<span class="item t">余额</span>
+									<span>￥888</span>
+								</div>
+								<div class="item">
+									<span class="item t">易和券</span>
+									<span>666</span>
+								</div>
+							</div>
+						</div>
+						<div class="right-label">
+							<h3 class="sign">我的会员等级<i>VIP7</i>
+					 <span style="line-height:30px;!important;">
+                        <a href="#" style="text-decoration: none; border-radius: 5px; color: rgb(255, 255, 255); display: inline-block; background: rgb(255, 108, 0) none repeat scroll 0px 0px; margin-right: 40px;margin-top: 10px; padding: 0px 10px 0 10px;float:right;">
+                            去充值
+                        </a>
+                   </span>	
+					</h3>
+							<div class="view-list">
+								<div class="progress">
+									<div class="inside">
+										<div class="in">
+
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="rco active">
+										<i>
+                        	       v1
+                        	 </i>
+									</div>
+									<div class="text-desr">
+										(0-500)
+									</div>
+								</div>
+								<div class="item">
+									<div class="rco">
+										<i>
+                        	      v2
+                        	  </i>
+									</div>
+									<div class="text-desr">
+										(501-2k)
+									</div>
+								</div>
+								<div class="item">
+									<div class="rco">
+										<i>v3</i>
+									</div>
+									<div class="text-desr">
+										(2k-5k)
+									</div>
+								</div>
+								<div class="item">
+									<div class="rco">
+										<i>
+                        	        v4
+                        		</i>
+									</div>
+									<div class="text-desr">
+										(5k-2w)
+									</div>
+								</div>
+								<div class="item">
+									<div class="rco">
+										<i>
+                        	        v5
+                        		</i>
+									</div>
+									<div class="text-desr">
+										(2w-5w)
+									</div>
+								</div>
+								<div class="item">
+									<div class="rco">
+										<i>
+                        	        v6
+                        		</i>
+									</div>
+									<div class="text-desr">
+										(5w-10w)
+									</div>
+								</div>
+								<div class="item">
+									<div class="rco">
+										<i>
+                        	        v7
+                        		</i>
+									</div>
+									<div class="text-desr">
+										(10w+)
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="fff">
+				<div class="right-1">
+					<div class="right-1-mark">
+						我的订单
+					</div>
+					<div class="order-state">
+						<a href="" class="active">全部</a>
+						<span></span>
+						<a href="">待付款</a>
+						<span></span>
+						<a href="">代发货</a>
+						<span></span>
+						<a href="">已收货</a>
+						<span></span>
+						<a href="">退款</a>
+						<span></span>
+						<a href="">已完成</a>
+						<span></span>
+						<a href="">已关闭</a>
+						<a href="" class="del">订单回收站</a>
+					</div>
+					<div class="emty-view">
+						<div class="emty-guide">
+							<img src="img/files.png" class="cover" />
+							<div class="emty-btns">
+								<span>暂时没有订单</span>
+								<a href="index.html">去首页看看</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="fff">
+				<div class="right-1">
+					<div class="right-1-mark">
+
+						<a href="" style="text-decoration: none;color: #018DE2;padding: 0px;">我的积分</a>
+						<a style="padding-left: 10px;padding-right: 15px;color:#018DE2;">|</a>
+						<a href="" style="text-decoration: none;color: #333333;padding: 0px;"> 兑换记录</a>
+					</div>
+					<div class="address-list">
+						<span>当前积分：888</span>
+					</div>
+					<div class="address-list integral">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<th class="date">积分日期</th>
+								<th class="inte">积分</th>
+								<th class="goods">来源</th>
+							</tr>
+							<tr>
+								<td>2017-10-01</td>
+								<td>688</td>
+								<td>购物</td>
+							</tr>
+							<tr>
+								<td>2017-10-02</td>
+								<td>200</td>
+								<td>充值</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="fff">
+				<div class="right-1">
+					<div class="right-1-mark">
+						我的易和券
+					</div>
+					<div class="myorder-list">
+						<div class="empty-view">
+							<div class="empty-guide">
+								<img src="img/files.png" />
+								<div class="guide-btns">
+									<span>暂时没有劵<a href="index.html">去首页看看</a></span>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="fff">
+				<div class="right-1">
+					<div class="right-1-mark">
+						个人资料
+					</div>
+					<ul class="person-info">
+						<li class="item s1">
+							<span class="label">当前头像: </span>
+							<div class="info-data">
+								<img class="face" id="usering" src="img/other/bg.jpg" />
+								<input type="file" name="" id="changeImg" value="" style="width: 0px;height: 0px;outline: none;" />
+								<label for="changeImg" class="changeImg" style="color: orangered;width: 20px;border: 1px solid red;">修改</label>
+							</div>
+						</li>
+						<li class="item">
+							<span class="label">昵称:</span>
+							<div class="info-data">
+								<input class="nickname" id="nickname" type="text" placeholder="上善若水" value="">
+							</div>
+						</li>
+						<li class="item">
+							<span class="label">性别:</span>
+							<div class="info-data">
+								<div class="s2" style="margin-top: 8px;">
+									<input type="radio" name="sex" id="sex" value="1" style="vertical-align: middle;" checked="">男					
+									<input type="radio" name="sex" id="sex" value="2" style="vertical-align: middle;">女
+								</div>
+							</div>
+						</li>
+						<li class="item">
+							<span class="label">生日:</span>
+							<div class="info-data">
+								<div class="s2">
+									<input style="margin: 8px 0 0 0;" type="date" name="" id="" value="1996-08-08" />
+								</div>
+							</div>
+						</li>
+						<li class="item">
+							<span class="label">手机:</span>
+							<div class="info-data">
+								<div class="s2">
+									<input style="margin: 8px 0 0 0;" type="text" name="" id="" value="" placeholder="18269791523" />
+								</div>
+							</div>
+						</li>
+						<li class="item">
+							<div class="info-data">
+								<a href="#"><button class="s updtate" style="width: 100px;height: 30px;line-height: 30px;">确认提交</button></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="fff">
+				<div class="right-1">
+					<div class="right-1-mark">
+						收货地址
+						<a class="add-btn">收货地址</a>
+					</div>
+					<div class="address-list">
+						<div class="empty-desc">
+							<i class="icon"></i>暂无收货地址，请点击<a>添加新地址</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="fff">
+				<div class="right-1">
+					<div class="right-1-mark">
+						我的收藏
+					</div>
+					<ul class="business-list">
+						<div class="myorder-list">
+							<div class="empty-view">
+								<div class="empty-guide">
+									<img src="img/files.png" />
+									<div class="guide-btns">
+										<span>暂时没有收藏<a href="index.html">去首页看看</a></span>
+									</div>
+								</div>
+	
+							</div>
+						</div>
+					</ul>
+				</div>
+			</div>
+			<div class="fff">
+				<div class="right-1">
+					<div class="right-1-mark">
+						我的收藏
+					</div>
+					<ul class="business-list">
+						<div class="myorder-list">
+							<div class="empty-view">
+								<div class="empty-guide">
+									<img src="img/files.png" />
+									<div class="guide-btns">
+										<span>您还没有浏览宝贝！<a href="index.html">去首页看看</a></span>
+									</div>
+								</div>
+	
+							</div>
+						</div>
+					</ul>
+				</div>
+			</div>
+			<div class="fff">
+				<div class="right-1">
+					<div class="right-1-mark">
+						修改密码
+					</div>
+					<div class="form-area">
+						<input type="text" name="" id="" value="" placeholder="上善若水" disabled="disabled" /><br />
+						<div class="form-space"></div>
+						<input type="password" name="" id="" value="" placeholder="请输入密码" /><br />
+						<div class="form-space"></div>
+						<input type="password" name="" id="" value="" placeholder="再次输入密码" /><br />
+						<div class="form-space"></div>
+						<input type="submit" name="" id="" class="updtate" value="点击修改" />
+					</div>
+				</div>
+			</div>
+			<div class="fff">
+				<div class="right-1">
+					<div class="right-1-mark">
+						我的消息
+					</div>
+					<div class="address-list">
+						<table cellpadding="0" cellspacing="0">
+							<tbody>
+								<tr>
+									<th class="cool-title">标题</th>
+									<th class="coll-time">发送时间</th>
+									<th class="coll-state">状态</th>
+									<th class="coll-title">内容</th>
+									<th class="coll-do">操作</th>
+								</tr>
+								<tr>
+									<td>顺丰快递</td>
+									<td>2017-10-01</td>
+									<td>未读</td>
+									<td>您好，您的快递给你放前台了，记得拿奥！</td>
+									<td><a href="#" class="delMsg">删除</a></td>
+								</tr>
+								<tr>
+									<td>逆风快递</td>
+									<td>2017-09-28</td>
+									<td>已读</td>
+									<td>您好，您的快递已经发货！请耐心等待！</td>
+									<td><a href="#" class="delMsg">删除</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+			<div class="fff">
+				<div class="right-1 add_address">
+					<div class="right-1-mark">
+						添加收货地址
+					</div>
+					<div class="form-box">
+						<form action="" method="post">
+							收货地址：<input type="text" name="" id="" value="" /><br />
+							<div class="right-1-space" style="height: 40px;"></div>
+
+							<select name="" id="s1">
+								<option value="">请选择省份</option>
+								<option value="" ng-repeat="x in arr | sheng track by $index " code="{{x.s}}">{{x.n}}</option>
+							</select>
+							市级：
+							<select name="" id="s2">
+								<option value="">请选择市级</option>
+								<option value="" ng-repeat="x in brr track by $index " code1="{{x.di}}">{{x.n}}</option>
+							</select>
+							区/县：
+							<select name="">
+								<option value="">请选择区/县</option>
+								<option value="" ng-repeat="x in crr track by $index" code2="{{x.x}}">{{x.n}}</option>
+							</select>
+							<br />
+							<div class="right-1-space" style="height: 40px;"></div>
+							详细地址：<input type="text" name="" id="" value="" /><br />
+							<div class="right-1-space" style="height: 40px;"></div>
+							联系电话：<input type="text" name="" id="" value="" />或固定电话：<input style="width: 30px;" type="text" name="" id="" value="" /> -
+							<input type="text" name="" id="" value="" /><br />
+							<div class="right-1-space" style="height: 40px;"></div>
+							<a href="#"><button class="add">添加地址</button></a>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!--尾部引用-->
+		<div ng-include="'./template/footer.html'"></div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/city-min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layer.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/left.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(".left ul li").click(function() {
+			if($(this).index() == 1) {
+				$(".fff").css("display", "none")
+				document.querySelectorAll(".fff")[0].style.display = "block"
+			}
+			if($(this).index() == 2) {
+				$(".fff").css("display", "none")
+				document.querySelectorAll(".fff")[1].style.display = "block"
+			}
+			if($(this).index() == 3) {
+				$(".fff").css("display", "none")
+				document.querySelectorAll(".fff")[2].style.display = "block"
+			}
+			if($(this).index() == 4) {
+				$(".fff").css("display", "none")
+				document.querySelectorAll(".fff")[3].style.display = "block"
+			}
+			if($(this).index() == 6) {
+				$(".fff").css("display", "none")
+				document.querySelectorAll(".fff")[4].style.display = "block"
+			}
+			if($(this).index() == 7) {
+				$(".fff").css("display", "none")
+				document.querySelectorAll(".fff")[5].style.display = "block"
+			}
+			if($(this).index() == 8) {
+				$(".fff").css("display", "none")
+				document.querySelectorAll(".fff")[6].style.display = "block"
+			}
+			if($(this).index() == 9) {
+				$(".fff").css("display", "none")
+				document.querySelectorAll(".fff")[7].style.display = "block"
+			}
+			if($(this).index() == 10) {
+				$(".fff").css("display", "none")
+				document.querySelectorAll(".fff")[8].style.display = "block"
+			}
+			if($(this).index() == 12) {
+				$(".fff").css("display", "none")
+				document.querySelectorAll(".fff")[9].style.display = "block"
+			}
+
+		})
+		$(".right-1 .address-list .empty-desc a").click(function() {
+			$(".fff").css("display", "none")
+			document.querySelectorAll(".fff")[10].style.display = "block"
+		})
+		$(".right-1 .right-1-mark .add-btn").click(function() {
+			$(".fff").css("display", "none")
+			document.querySelectorAll(".fff")[10].style.display = "block"
+		})
+		var app = angular.module('a', [])
+			.controller('c', function($scope) {
+				$scope.arr = citiesarr;
+				var code, code1, code2
+				$("#s1").change(function() {
+					console.log()
+					code = $("#s1 option:selected").attr("code")
+					$scope.brr = []
+					for(var i = 0; i < $scope.arr.length; i++) {
+						if($scope.arr[i]['s'] == code && $scope.arr[i]['l'] == 2) {
+							$scope.brr.push($scope.arr[i])
+						}
+					}
+					// 再某个变量（$scope.xxx）发生值的变化之后，使用$scope.$apply() 将新的值重新应用到app中，
+					$scope.$apply() //***
+				})
+				$("#s2").change(function() {
+					console.log(222)
+					code1 = $("#s2 option:selected").attr("code1")
+					$scope.crr = []
+					for(var i = 0; i < $scope.arr.length; i++) {
+						if($scope.arr[i]['s'] == code && $scope.arr[i]['di'] == code1 && $scope.arr[i]['l'] == 3) {
+							$scope.crr.push($scope.arr[i])
+						}
+					}
+					// 再某个变量（$scope.xxx）发生值的变化之后，使用$scope.$apply() 将新的值重新应用到app中，
+					$scope.$apply() //***
+				})
+
+			})
+			.filter("sheng", function() {
+				return function(value) {
+					var brr = []
+					for(var i = 0; i < value.length; i++) {
+						if(value[i]['l'] == 1) {
+							brr.push(value[i])
+						}
+					}
+					return brr
+				}
+			})
+			
+		
+		//修改头像
+//		console.log($(".info-data .changeImg"));
+		$(".info-data .changeImg").click(function(){
+			console.log("123");
+			$("#changeImg").change(function(){
+//				console.log($(this));
+				if(this.files[0]){
+//					console.log(this.files[0]);
+					var dataUrl = window.URL.createObjectURL(this.files[0]);
+//					console.log(dataUrl);
+//					console.log($("#usering").attr("src"))
+					$("#usering").attr("src",dataUrl);
+				}
+				
+			})
+			
+			
+		})
+			
+		
+		//刪除信息
+		$(".delMsg").click(function(){
+			$(this).parent().parent().hide();
+			layer.msg("删除成功！");
+		})
+		
+		//修改密码
+		$(".updtate").click(function(){
+			layer.msg("修改成功！");
+		})
+		//添加地址
+		$(".add").click(function(){
+			layer.msg("地址添加成功！");
+		})
+	</script>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="shortcut icon" href="./img/logo.ico" />
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/tmp.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<script src="js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			 .s-ul a{
+			 	text-decoration: none;
+			 	color: black;
+			 }
+			
+			.s-ul li{
+				list-style: none;
+				width: 290px;
+				height: 267px;
+				float: left;
+				margin: 2px;
+			}
+			.v{
+				width: 1180px;
+				margin: 0 auto;
+				border: 1px solid silver;
+				box-shadow: 0 0 5px silver;
+				margin-top: 200px;
+				margin-bottom: 20px;
+				padding: 2px 0 0 0;
+			}
+			.selected>.s-ul{
+				width: 1180px;
+				height: 823px;
+				margin: auto;
+			}
+			.info-list{
+				width: 287px;
+				height: 100px;
+			}
+			.title1{
+				position: relative;
+				left: 30px;
+			}
+			.icon{
+				position: relative;
+				left: 30px;
+				color: slategray
+			}
+			li:hover .red-line{
+				width: 280px;
+				height: 2px;
+				background-color: deeppink;
+			}
+			li:hover .title1{
+				color: deeppink;
+			}
+		</style>
+	</head>
+	<body ng-app="a" ng-controller="c">
+		<!--头部引用-->
+		<div ng-include="'template/header.html'"></div>
+		
+		<div class="selected v" ng-app="a" ng-controller='c'>
+			<ul class="s-ul">
+				<li ng-repeat="x in choice_select_info track by $index">
+					<a href="shopdetail.html">
+						<img src="img/choice_seller/{{x.img}}"/>
+					</a>
+					<div class="info-list">
+						<a href="shopdetail.html">
+							 <p class="title1">
+							 	<i class="title"></i>
+							 	{{x.name}}
+							 </p>
+						</a>
+						<p class="icon">{{x.numb}}</p>
+						<p class="icon">{{x.add}}</p>
+					</div>
+					<div class="red-line"></div>
+				</li>
+			</ul>
+		</div>
+		
+		<!--尾部引用-->
+		<div ng-include="'./template/footer.html'"></div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var a = angular.module("a",[]);
+		a.controller("c",function($scope){
+			$scope.choice_select_info = [
+				{img:'40.jpg',name:'卢峰溪谷',numb:'18618283361',add:'牟平区大窑镇李家庄'},
+				{img:'32.jpg',name:'波波麻辣香锅',numb:'15853542394',add:'芝罘区小南洪街'},
+				{img:'2775.jpg',name:'喜来刷专业汽车美容',numb:'13361392217',add:'烟台芝罘区解放路156号'},
+				{img:'7594.jpg',name:'烟台新华国际旅行社有限公司',numb:'18953525130',add:'烟台市芝罘区北大街124号'},
+				{img:'09.jpg',name:'山东福山泉水樱桃',numb:'15942843351',add:'山东省烟台市开发区古现办事处院下'},
+				{img:'14.jpg',name:'八达物资有限公司',numb:'13953571391',add:'烟台芝罘区东方银座'},
+				{img:'06.jpg',name:'澳牛纺肥牛海鲜火锅',numb:'13455577902',add:'芝罘区解放路162号'},
+				{img:'43.jpg',name:'陆号鸽子王',numb:'15953554098',add:'山东省烟台市芝罘区幸福中路89-5号'},
+				{img:'03.jpg',name:'塔山滑雪场',numb:'18663816132',add:'烟台市芝罘区上夼西路南首200米'},
+				{img:'17.jpg',name:'华和牌烟台绿茶',numb:'18865552853',add:'烟台市芝罘区上夼东路18号'},
+				{img:'08.jpg',name:'烟台淑岚经贸有限公司',numb:'13562582973',add:'烟台市芝罘区环海路'},
+				{img:'21.jpg',name:'烟台淑岚经贸有限公司',numb:'13081629982',add:'烟台市环海路'}
+			]
+		})
+	</script>
+</html>

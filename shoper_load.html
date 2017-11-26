@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>load</title>
+		<link rel="shortcut icon" href="./img/logo.ico" />
+		<link rel="stylesheet" type="text/css" href="css/tmp.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="css/layer.css"/>
+
+	</head>
+
+	<body ng-app="a" ng-controller="c">
+		<div class="shoper_load_title">
+			<div class="title_box">
+				<div>所在城市：
+					<a href="#">苏州<i class="down_arrow"></i></a>
+				</div>
+				<!--链接到切换城市页面，选择城市后再返回这里-->
+				<p>
+					<a href="#">欢迎光临易和生活港</a>
+				</p>
+			</div>
+		</div>
+		<div class="shoper_load_logobox">
+			<div class="logo">
+				<a href="#"><img src="./img/logo.png" /></a>
+			</div>
+			<p>商家登录</p>
+		</div>
+		<div class="login_body">
+			<div class="login_body_main">
+				<div class="form-area">
+					<p>商家登陆</p>
+					<!--<form class="layui-form" action="">-->
+					<div class="layui-form-item">
+						<div class="layui-input-inline">
+							<input type="text" name="useraccount" lay-verify="required" autocomplete="off" placeholder="请输入登录账号" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-inline">
+							<input type="password" name="pwd" lay-verify="required" autocomplete="off" placeholder="请输入密码" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-inline">
+							<input type="text" name="verification_code" lay-verify="title" autocomplete="off" placeholder="验证码" value="" class="layui-input verification_code">
+							<!--<label class="layui-form-label">单行输入框</label>-->
+							<input type="text" name="verification_code1" lay-verify="title" autocomplete="off" placeholder="" value="" class="layui-input verification_code1">
+							<span><a href="#">看不清，换一张</a></span>
+						</div>
+					</div>
+					<div></div>
+					<p class="forget">
+						<a href="lostpwd.html">忘记密码？</a>
+					</p>
+					<!--<div class="load">登录</div>-->
+					<div class="layui-form-item">
+						<div class="layui-input-inline">
+							<a href="#"><button class="layui-btn load" lay-submit="" lay-filter="demo1">立即登陆</button></a>
+							<!--<button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+						</div>
+					</div>
+					<!--</form>-->
+				</div>
+			</div>
+		</div>
+
+		<!--尾部引用-->
+		<div ng-include="'./template/footer.html'"></div>
+	</body>
+
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layer.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var app = angular.module("a", [])
+			.controller("c", function($scope) {
+
+			})
+	</script>
+	<script>
+		
+		//随机验证码
+		$(".verification_code1").val(""+parseInt(Math.random()*10)+parseInt(Math.random()*10)+parseInt(Math.random()*10)+parseInt(Math.random()*10));
+		$(".form-area span>a").click(function(){
+			$(".verification_code1").val(""+parseInt(Math.random()*10)+parseInt(Math.random()*10)+parseInt(Math.random()*10)+parseInt(Math.random()*10));
+		})
+		
+		
+		$(".load").click(function(){
+			layer.msg("登陆成功！");
+			setTimeout(function(){
+				window.location.href = "index.html";
+			},1000);
+		})
+	</script>
+
+</html>

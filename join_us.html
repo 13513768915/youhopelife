@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>join us</title>
+		<link rel="shortcut icon" href="./img/logo.ico" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/tmp.css" />
+		<link rel="stylesheet" type="text/css" href="css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="css/layer.css"/>
+		
+	</head>
+
+	<body ng-app="a" ng-controller="c">
+		<!--头部引用-->
+		<div ng-include="'template/header.html'"></div>
+
+		<div class="joinus-ban">
+			<!--<img src="img/other/joinus-ban.jpg"/>-->
+			<div class="joinus-ban-textbox">
+				<div>
+					<p>客服电话：<span>400-100-0907</span></p>
+					<p>商务洽谈：<span>400-100-0907</span></p>
+					<p>工作时间：<span>周一至周六</span></p>
+					<p>上午8：00 - 12：00 ， 下午14：00 - 17：30</p>
+				</div>
+			</div>
+		</div>
+		<div class="user-type">
+			<div class="is-user">
+				<div>我是用户</div>
+				<p class="text">功能建议</p>
+				<p>期待您的建议和反馈</p>
+				<p>不断完善成长</p>
+				<div>
+					<a href="#" class="suggest">提点建议</a>
+				</div>
+			</div>
+			<div class="line"></div>
+			<div class="is-shoper">
+				<div>我是商家</div>
+				<p class="text">商户入驻</p>
+				<p>期待您的入驻</p>
+				<p>共同打造新的平台</p>
+				<div>
+					<a href="join.html">申请入驻</a>
+				</div>
+			</div>
+		</div>
+
+		<!--尾部引用-->
+		<div ng-include="'./template/footer.html'"></div>
+		
+		
+		<!--点击提点建议弹出的部分-->
+		<div class="somsuggestion">
+			<div class="opacity"></div>
+			<div class="body-area">
+				<div class="textareaBox">
+					<textarea name="suggest" placeholder="请输入您的意见，我们将与您共同成长(不得超过200字)" maxlength="200"></textarea>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-input-inline" style="margin: auto;margin-left: 20%;">
+						<a href="#"><button class="layui-btn r" style="width: 50%;margin: 5% 25%;background: gray;">返回</button></a>
+					</div>
+					<div class="layui-input-inline" style="margin: auto;">
+						<a href="#"><button class="layui-btn s thanks" style="width: 50%;margin: 5% 25%;background: orangered;">提交</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+
+	</body>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layer.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var app = angular.module("a", [])
+			.controller("c", function($scope) {
+
+			})
+	</script>
+	<script>
+		//一般直接写在一个js文件中
+		layui.use(['layer', 'form'], function() {
+			var layer = layui.layer,
+				form = layui.form;
+
+			layer.msg('Hello World');
+		});
+	</script>
+	<script type="text/javascript">
+		//提点建议js
+		$(".user-type .suggest").click(function(){
+			$(".somsuggestion").css("display","block");
+			$(".r").click(function(){
+				$(".somsuggestion").css("display","none");
+			})
+			$(".s").click(function(){
+				$(".somsuggestion").css("display","none");
+			})
+		})
+		
+		
+		$(".thanks").click(function(){
+			layer.msg("非常感谢您的建议！");
+		})
+	</script>
+
+</html>

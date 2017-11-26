@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html ng-app="a" ng-controller="c">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/tmp.css"/>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="layui/layui.js"></script>
+		<script type="text/javascript" src="js/angular.js"></script>
+		<style type="text/css">
+			* {
+				border: 0;
+				padding: 0;
+			}
+			
+			section {
+				width: 1180px;
+				margin: 0 auto;
+			}
+			
+			.local {
+				height: 50px;
+				line-height: 50px;
+				font-size: 18px;
+				color: #999999;
+			}
+			
+			.body {
+				border: 1px solid #D3D3D3;
+				overflow: hidden;
+			}
+			
+			.con {
+				margin: 20px;
+				/*overflow: auto;*/
+				position: relative;
+			}
+			
+			.cover {
+				width: 360px;
+				height: 260px;
+				float: left;
+				background: #f2f2f2;
+			}
+			
+			.pic {
+				width: 300px;
+				height: 200px;
+				float: left;
+				position: relative;
+				left: 30px;
+			}
+			
+			.pic1 {
+				width: 300px;
+				height: 200px;
+				margin: 0 auto;
+				display: block;
+			}
+			
+			.small-group {
+				clear: both;
+				height: 70px;
+				position: relative;
+				top: 10px;
+			}
+			
+			.prev {
+				background: url(img/icons.png);
+				background-position: 7px -281px;
+				width: 32px;
+				height: 40px;
+				float: left;
+				cursor: pointer;
+			}
+			
+			.next {
+				background: url(img/icons.png);
+				background-position: 9px -345px;
+				width: 32px;
+				height: 40px;
+				float: right;
+				cursor: pointer;
+			}
+			
+			.pic-list {
+				width: 295px;
+				height: 40px;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			.pic-list>ul {
+				list-style: none;
+				height: 40px;
+				width: 500px;
+				padding: 0;
+				margin: 0;
+				position: absolute;
+			}
+			
+			.pic-list>ul>li {
+				float: left;
+				margin-left: 5px;
+			}
+			
+			.pic-list>ul>li:first-child {
+				margin-left: 0;
+			}
+			
+			.pic-list>ul>li>img {
+				width: 70px;
+				height: 40px;
+			}
+			
+			.cover-big {
+				width: 400px;
+				height: 400px;
+				position: absolute;
+				left: 375px;
+				overflow: hidden;
+				display: none;
+			}
+			
+			.cover-big>img {
+				width: 1296px;
+				height: 720px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 10;
+			}
+			
+			.box {
+				width: 100px;
+				height: 100px;
+				background: #cccccc;
+				opacity: 0.3;
+				display: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			.pic-list-ul {
+				animation: 2s;
+			}
+			/*//article*/
+			
+			.article {
+				float: left;
+				width: 460px;
+				margin: 0 15px;
+			}
+			
+			.title {
+				line-height: 30px;
+				font-size: 22px;
+				color: #449FE5;
+				margin: 0 0 5px 0;
+				font-weight: normal;
+			}
+			
+			.desc {
+				width: 100%;
+				text-align: center;
+				margin-top: 10px;
+				font-family: "黑体";
+				font-size: 29px;
+				color: #666666;
+			}
+			.desc>h4>p{
+				line-height: 30px;
+			}
+			
+			.text {
+				/*text-align: center;*/
+				line-height: 32px;
+				text-indent: 32px;
+				font-size: 18px;
+				text-align: left;
+				font-family: '宋体';
+			}
+			
+			.info-list {
+				margin-top: 80px;
+				border-bottom: 1px solid #e3e3e3;
+				border-top: 1px solid #e3e3e3;
+				padding: 20px 0;
+				color: #666666;
+				line-height: 27px;
+				font-size: 14px;
+			}
+			
+			.phone {
+				width: 17px;
+				height: 17px;
+				display: inline-block;
+				background: url(img/icons.png);
+				background-position: -204px -52px;
+				vertical-align: -12%;
+				padding-left: 10px;
+			}
+			
+			.address {
+				display: inline-block;
+				background: url(img/icons.png);
+				background-position: -204px -83px;
+				width: 17px;
+				height: 17px;
+				vertical-align: -12%;
+				padding-left: 10px;
+			}
+			
+			.notice h3 {
+				font-size: 16px;
+				color: #018DE2;
+				font-weight: normal;
+				margin: 0 0 5px 0;
+			}
+			/*右边*/
+			
+			.sider {
+				float: right;
+				width: 280px;
+				height: 261px;
+				position: relative;
+			}
+			
+			.icon {
+				color: white;
+				display: inline-block;
+				background: url(img/icons.png);
+				background-position: -55px -413px;
+				width: 49px;
+				height: 61px;
+				position: absolute;
+				top: -21px;
+				right: -21px;
+			}
+			
+			.icon>span {
+				text-align: center;
+				display: block;
+				font-size: 16px;
+				line-height: 16px;
+				margin: 10px 0 0 0;
+			}
+			
+			.infos {
+				height: 30px;
+				line-height: 30px;
+				color: #666666;
+				font-size: 16px;
+				margin: 0;
+			}
+			
+			.label {
+				line-height: 30px;
+				font-weight: bold;
+			}
+			
+			.view {
+				display: inline-block;
+				width: 100px;
+				height: 6px;
+				background: #d3d3d3;
+				overflow: hidden;
+				vertical-align: 8%;
+				margin: 0 5px;
+			}
+			
+			.scale {
+				float: left;
+				/*width: 88%;*/
+				height: 6px;
+				background: #ff6c00;
+			}
+			
+			.score-list {
+				overflow: hidden;
+				margin: 30px 0;
+				list-style: none;
+			}
+			
+			.score-list>.item>span {
+				display: block;
+				text-align: center;
+				font-size: 16px;
+			}
+			
+			.score-list>.item {
+				float: left;
+				width: 32%;
+				border-right: 1px dashed #d3d3d3;
+			}
+			
+			.num {
+				color: #ff6c00;
+				line-height: 30px;
+			}
+			
+			.qq-list {
+				list-style: none;
+				overflow: hidden;
+			}
+			
+			.qq-list .items {
+				height: 35px;
+				line-height: 35px;
+				color: #666;
+				font-size: 16px;
+			}
+			
+			.qq-list>.items>a {
+				display: inline-block;
+				width: 128px;
+				height: 35px;
+				background: orange;
+				padding: 0 20px;
+				border-radius: 8px;
+				text-decoration: none;
+				color: white;
+				margin-left: 20px;
+			}
+			
+			.server {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				background: url(img/icons.png);
+				background-position: -58px 8px;
+				float: left;
+			}
+			
+			.business-class {
+				clear: both;
+				overflow: hidden;
+				position: relative;
+				margin-top: 30px;
+				border: 1px solid #E3E3E3;
+				padding: 0;
+			}
+			
+			.class-nav {
+				list-style: none;
+				height: 50px;
+				margin: 0;
+				top: 0;
+				right: 0;
+			}
+			
+			.business {
+				float: right;
+				height: 50px;
+				line-height: 50px;
+				padding: 0 20px;
+				background: #018DE2;
+				color: white;
+			}
+			/*//商品信息*/
+			
+			.class-view {
+				border-top: 0;
+				padding: 15px 10px 10px;
+				background: #fff;
+			}
+			
+			.business-list {
+				list-style: none;
+				overflow: hidden;
+				margin: 0;
+				position: relative;
+			}
+			
+			.business-info {
+				float: left;
+				width: 20%;
+				margin: 0;
+				float: left;
+				display: none;
+			}
+			
+			.product:hover {
+				box-shadow: 1px 1px 1px 1px #E2E2E2;
+			}
+			
+			.product {
+				border: 1px solid #f5f5f5;
+				margin: 0 10px 10px;
+				background: #fff;
+			}
+			
+			.cover-a {
+				display: block;
+				overflow: hidden;
+				position: relative;
+				padding: 20px;
+			}
+			
+			.cover-a>img {
+				width: 100%;
+			}
+			
+			.title-a {
+				display: block;
+				margin: 0px 15px 5px;
+				font-size: 14px;
+				color: #666;
+				font-family: "Microsoft Songti";
+				line-height: 20px;
+				text-decoration: none;
+				height: 18px;
+				overflow: hidden;
+			}
+			
+			.product-data {
+				margin: 0 15px;
+				overflow: hidden;
+				padding: 0 0 10px 0;
+			}
+			
+			.text1 {
+				float: left;
+				height: 30px;
+				line-height: 30px;
+				font-size: 16px;
+				color: #FF6C00
+			}
+			
+			.text2 {
+				float: left;
+				height: 30px;
+				line-height: 30px;
+				font-size: 14px;
+				color: #666;
+				margin: 0 0 0 5px;
+				text-decoration: line-through;
+			}
+			
+			.business-kind {
+				float: left;
+				height: 50px;
+				line-height: 50px;
+				text-decoration: none;
+				font-size: 18px;
+				color: #333;
+				padding: 0 25px;
+				border-right: 1px solid #d3d3d3;
+				border-bottom: 1px solid #d3d3d3;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--头部引用-->
+		<div ng-include="'template/header.html'"></div>
+		
+		<section>
+			<div class="local">您当前位置:首页>塔山滑雪场</div>
+			<div class="body">
+				<div class="con">
+					<div class="cover">
+						<div class="pic">
+							<a href="#"><img src="img/05.jpg" class="pic1" /></a>
+							<div class="box"></div>
+						</div>
+						<div class="cover-big">
+							<img src="img/05.jpg" class="big_img" />
+						</div>
+						<div class="small-group">
+							<div class="prev"></div>
+							<div class="next"></div>
+							<div class="pic-list">
+								<ul class="pic-list-ul" style="transition: 0.2s;">
+									<li ng-repeat="x in arr track by $index" class="pic-list-li">
+										<img ng-src='img/{{x}}' />
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="article">
+						<h3 class="title">塔山滑雪场</h3>
+						<div class="desc">
+							<h4>
+								<p style="margin: 0;">要飞&nbsp;要爽&nbsp;要滑雪</p>
+								<p style="margin: 0;">烟台塔山滑雪场欢迎您</p>
+							</h4>
+							<p class="text">烟台塔山滑雪场位于烟台市中心南端塔山脚下，一期工程占地面积约2.5万平方米，是胶东地区首家人工造雪室外滑雪场。</p>
+							<p class="text">滑雪场周围青松翠柏环绕，空气清新，环境怡人，位居市中心，交通便利。雪场引进了全套加拿大人工造雪设备和日本进口滑雪器材，拥有国内最先进的“魔毯”传送设备，建有初级道150米、中级道380米、雪圈道130米，可同时容纳1000余人滑雪，日接待量可达5000人次。专业导滑员全程教学、指导，初学者短时间内就可掌握滑雪技巧。</p>
+							<p class="text" style="margin: 0;">
+								<span>滑雪热线:&nbsp;</span>
+								<sapn>0535-6081399、6081339</sapn>
+							</p>
+							<p class="text" style="margin: 0;">
+								<span>雪场地址:&nbsp;</span>
+								<sapn>烟台市芝罘区上夼西路南首200米（6路车奇山终点站南）</sapn>
+							</p>
+							<p class="text" style="margin: 0;">
+								<span>雪场网址:&nbsp;</span>
+								<sapn>
+									<a href="#">http://yttshx.com</a>
+								</sapn>
+							</p>
+						</div>
+						<div class="info-list">
+							<p style="margin: 0;">
+								<i class="phone"></i> 18663816132
+							</p>
+							<p style="margin: 0;">
+								<i class="address"></i> 烟台市芝罘区上夼西路南首200米
+							</p>
+						</div>
+						<div class="notice">
+							<h3>商家公告:</h3>
+							<p></p>
+						</div>
+					</div>
+					<div class="sider">
+						<i class="icon">
+							<span>
+								合作 <br />
+								商家
+							</span>
+						</i>
+						<p class="infos">
+							<span class="label">所属品牌:</span>
+						</p>
+						<p class="infos">
+							<span class="label">综合评分:</span>
+							<span class="view">
+								<span class="scale"></span>
+							</span>
+							0分
+						</p>
+						<ul class="score-list">
+							<li class="item">
+								<span>描述</span>
+								<span class="num">0</span>
+							</li>
+							<li class="item">
+								<span>商品</span>
+								<span class="num">0</span>
+							</li>
+							<li class="item" style="border: none">
+								<span>服务</span>
+								<span class="num">0</span>
+							</li>
+						</ul>
+						<ul class="qq-list">
+							<li class="items">
+								<span style="float: left;">客服1:</span>
+								<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=648893475&amp;site=www.cactussoft.cn&amp;menu=yes" target="_blank" class="a"><i class="server"></i>QQ客服1</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="business-class">
+				<ul class="class-nav">
+					<li class="business" style="cursor: pointer;">全部商品</li>
+					<li class="business-kind" ng-repeat="x in business track by $index">{{x}}</li>
+				</ul>
+				<div class="class-view">
+					<ul class="business-list">
+						<li class="business-info business-pro1" ng-repeat="x in businessList|name1 track by $index">
+							<div class="product">
+								<a href="detail.html" class="cover-a">
+									<img ng-src="img/{{x.src}}" />
+								</a>
+								<a href="" class="title-a">{{x.title}}</a>
+								<div class="product-data">
+									<span class="text1">${{x.nowprice}}</span>
+									<span class="text2">${{x.beforeprice}}</span>
+								</div>
+							</div>
+						</li>
+						<li class="business-info business-pro2" ng-repeat="x in businessList|name2 track by $index">
+							<div class="product">
+								<a href="detail.html" class="cover-a">
+									<img ng-src="img/{{x.src}}" />
+								</a>
+								<a href="detail.html" class="title-a">{{x.title}}</a>
+								<div class="product-data">
+									<span class="text1">${{x.nowprice}}</span>
+									<span class="text2">${{x.beforeprice}}</span>
+								</div>
+							</div>
+						</li>
+						<li class="business-info business-pro3" ng-repeat="x in businessList|name3 track by $index">
+							<div class="product">
+								<a href="" class="cover-a">
+									<img src="img/{{x.src}}" />
+								</a>
+								<a href="" class="title-a">{{x.title}}</a>
+								<div class="product-data">
+									<span class="text1">${{x.nowprice}}</span>
+									<span class="text2">${{x.beforeprice}}</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<!--尾部引用-->
+		<div ng-include="'./template/footer.html'"></div>
+	</body>
+	<script type="text/javascript">
+		var app = angular.module('a', [])
+			.controller('c', function($scope) {
+				$scope.business = ['樱桃汁', '樱桃罐头', '樱桃酱'];
+				$scope.businessList = [{
+						src: '01.jpg',
+						title: '滑雪(周六、日)两小时',
+						nowprice: '120.00',
+						beforeprice: '150.00',
+						name: '1'
+					},
+					{
+						src: '02.jpg',
+						title: '滑雪(工作日)两小时',
+						nowprice: '130.00',
+						beforeprice: '170.00',
+						name: '1'
+					},
+					{
+						src: '03.jpg',
+						title: '滑雪(工作日)全天',
+						nowprice: '200.00',
+						beforeprice: '300.00',
+						name: '1'
+					},
+					{
+						src: '03.jpg',
+						title: '滑雪(周六)两小时',
+						nowprice: '120.00',
+						beforeprice: '150.00',
+						name: '2'
+					},
+					{
+						src: '02.jpg',
+						title: '滑雪(工作日)两小时',
+						nowprice: '130.00',
+						beforeprice: '170.00',
+						name: '2'
+					},
+					{
+						src: '01.jpg',
+						title: '滑雪(工作日)全天',
+						nowprice: '200.00',
+						beforeprice: '300.00',
+						name: '2'
+					},
+					{
+						src: '05.jpg',
+						title: '滑雪(工作日)全天',
+						nowprice: '200.00',
+						beforeprice: '300.00',
+						name: '2'
+					},
+					{
+						src: '04.jpg',
+						title: '滑雪(工作日)全天',
+						nowprice: '200.00',
+						beforeprice: '300.00',
+						name: '2'
+					},
+					{
+						src: '02.jpg',
+						title: '滑雪(周六)两小时',
+						nowprice: '120.00',
+						beforeprice: '150.00',
+						name: '3'
+					},
+					{
+						src: '01.jpg',
+						title: '滑雪(工作日)全天',
+						nowprice: '200.00',
+						beforeprice: '300.00',
+						name: '3'
+					}
+				];
+				$scope.arr = ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg'];
+				$(function() {
+					//字体变色
+					$('.product').mouseenter(function(){
+						$(this).children()[1].style.color='red'
+					});
+					$('.product').mouseleave(function(){
+						$(this).children()[1].style.color='black'
+					});
+					//更改按钮样式
+					$('.business-kind').click(function() {
+						$('.business-kind').css({
+							color: '#333',
+							backgroundColor: 'white'
+						});
+						$(this).css({
+							backgroundColor: '#018DE2',
+							color: 'white'
+						});
+						
+						$('.business-info').hide();
+						if($(this).text()=='樱桃汁'){
+							$('.business-pro1').show();
+						}else if($(this).text()=='樱桃罐头'){
+							$('.business-pro2').show();
+						}else if($(this).text()=='樱桃酱'){
+							$('.business-pro3').show();
+						}
+
+					});
+					$('.business').click(function() {
+						$('.business-info').show();
+					});
+					//放大镜辅助模块
+					$('.pic-list-ul').css('transition', '0.2s');
+					$('.prev').click(function() {
+						$('.pic-list-ul').css('left', '-75px');
+					});
+					$('.next').click(function() {
+						$('.pic-list-ul').css('left', '0px');
+					});
+					$('.pic-list-li>img').click(function() {
+						$('.pic1').attr('src', $(this).attr('src'))
+					});
+					$('.pic-list-li>img').click(function() {
+						$('.big_img').attr('src', $(this).attr('src'))
+					});
+					//打开页面时显示第一项
+					$(".business-pro1").css("display","block");
+					$('.business-kind').eq(0).css({
+						backgroundColor:'#018DE2',
+						color:'white'
+					});
+				})
+			})
+			.filter("name1", function() {
+				return function(value) {
+					var brr = []
+					for(var i = 0; i < value.length; i++) {
+						if(value[i]['name'] == 1) {
+							brr.push(value[i])
+						}
+					}
+					return brr
+				}
+			})
+			.filter("name2", function() {
+				return function(value) {
+					var brr = []
+					for(var i = 0; i < value.length; i++) {
+						if(value[i]['name'] == 2) {
+							brr.push(value[i])
+						}
+					}
+					return brr
+				}
+			})
+			.filter("name3", function() {
+				return function(value) {
+					var brr = []
+					for(var i = 0; i < value.length; i++) {
+						if(value[i]['name'] == 3) {
+							brr.push(value[i])
+						}
+					}
+					return brr
+				}
+			})
+
+		var bbox = document.querySelector('.pic');
+		var bmove = document.querySelector('.box');
+		var bbimg = document.querySelector('.cover-big');
+		var b_bimg = document.querySelector('.big_img');
+		var con = document.querySelector('.con');
+		bbox.onmouseover = function() {
+			bbimg.style.display = "block"
+			bmove.style.display = "block"
+		}
+		bbox.onmouseout = function() {
+			bbimg.style.display = "none"
+			bmove.style.display = "none"
+		}
+		bbox.onmousemove = function(e) {
+			var x = e.pageX
+			var y = e.pageY
+			var t = bbox.offsetTop + con.offsetTop
+			var l = bbox.offsetLeft + con.offsetLeft
+			var _left = x - l - bmove.offsetWidth / 2;
+			var _top = y - t - bmove.offsetHeight / 2;
+			if(_top <= 0)
+				_top = 0
+			else if(_top >= bbox.offsetHeight - bmove.offsetHeight)
+				_top = bbox.offsetHeight - bmove.offsetHeight
+			if(_left <= 0) //滑到box的最左边
+				_left = 0
+			else if(_left >= bbox.offsetWidth - bmove.offsetWidth)
+				_left = bbox.offsetWidth - bmove.offsetWidth
+			bmove.style.top = _top + "px"
+			bmove.style.left = _left + "px"
+			var w = _left / (bbox.offsetWidth - bmove.offsetWidth)
+			var h = _top / (bbox.offsetHeight - bmove.offsetHeight)
+			var b_bimg_top = (b_bimg.offsetHeight - bbimg.offsetHeight) * h
+			var b_bimg_left = (b_bimg.offsetWidth - bbimg.offsetWidth) * w
+			b_bimg.style.top = -b_bimg_top + "px"
+			b_bimg.style.left = -b_bimg_left + "px"
+			console.log(b_bimg.offsetWidth)
+		}
+	</script>
+
+</html>

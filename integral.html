@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>integral</title>
+		<link rel="shortcut icon" href="./img/logo.ico" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/tmp.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/layer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/layui.css"/>
+		<script src="js/city-min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body ng-app="a" ng-controller="c">
+
+		<!--头部引用-->
+		<div ng-include="'template/header.html'"></div>
+
+		<!--banner-->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="img/other/jifen.jpg" /></div>
+				<div class="swiper-slide"><img src="img/other/jifen.jpg" /></div>
+				<div class="swiper-slide"><img src="img/other/jifen.jpg" /></div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+
+		<!--主体部分-->
+		<div class="integral-mainbox">
+			<ul class="jifen-exchange">
+				<!--<li>
+					<div class="jifen-exchange-list">
+						<img src="img/other/cover.jpg"/>
+						<p><a href="#">食用油</a></p>
+						<div>
+							<div>积分：1000</div>
+							<div>价值：￥1000</div>
+						</div>
+						<div class="duihuan">兑换</div>
+					</div>
+				</li>-->
+				<li ng-repeat="x in jifen_exchangelist_arr">
+					<div class="jifen-exchange-list">
+						<a href="#"><img src="{{x.img}}" /></a>
+						<p>
+							<a href="#">{{x.type}}</a>
+						</p>
+						<div>
+							<div>积分：{{x.jifen}}</div>
+							<div>价值：{{x.price}}</div>
+						</div>
+						<div class="duihuan">兑换</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<!--尾部引用-->
+		<div ng-include="'./template/footer.html'"></div>
+		
+		
+		
+		<!--点击兑换弹出的  收货地址   部分-->
+		<div class="somsuggestion writeAddr" style="display: none;">
+			<div class="opacity"></div>
+			<div class="body-area">
+				<p style="">收货地址</p>
+				<div class="inputbox">
+					<label for="#name"><span>*</span>收货人姓名：</label>
+					<div class="editor">
+						<input type="text" name="name" id="name" value=""/>
+					</div>
+				</div>
+				<div class="inputbox">
+					<label for="#name"><span>　*</span>所在地区：</label>
+					<div class="editor" style="width: 492px;">
+						<div class="sel">
+							<!--省份：-->
+							<select name=""  id="s1">
+								<option value="">请选择省份</option>
+								<option value=""  ng-repeat="x in arr | sheng track by $index " code="{{x.s}}">{{x.n}}</option>
+							</select>
+						</div>
+						<div class="sel">
+							<!--市级：-->
+							<select name=""  id="s2">
+								<option value="">请选择市级</option>
+								<option value="" ng-repeat="x in brr track by $index " code1="{{x.di}}">{{x.n}}</option>
+							</select>
+						</div>
+						<div class="sel">
+							<!--区/县：-->
+							<select name="">
+								<option value="">请选择区/县</option>
+								<option value="" ng-repeat="x in crr track by $index" code2="{{x.x}}">{{x.n}}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="inputbox">
+					<label for="#name"><span>　*</span>详细地址：</label>
+					<div class="editor">
+						<input type="text" name="name" id="name" value=""/>
+					</div>
+				</div>
+				<div class="inputbox">
+					<label for="#name" style="line-height: 35px;"><span>　*</span>联系电话：</label>
+					<div class="editor" style="width: 492px;">
+						<div class="sel" style="width: 132px;height: 25px; ">
+							<input type="text" name="" id="" value="" />
+						</div>
+						<label for="#name" style="line-height: 35px;">或固定电话：　</label>
+						<input type="text" name="" id="" value="" style="width: 50px;float: left;margin-top: 0px;" />
+						<label for="#name" style="line-height: 35px;">-　　</label>
+						<input type="text" name="" id="" value="" style="width: 90px;margin-top: 0px;" />
+					</div>
+				</div>
+				
+				
+				<div class="layui-form-item">
+					<div class="layui-input-inline" style="margin: auto;margin-left: 20%;">
+						<a href="#"><button class="layui-btn r" style="width: 50%;margin: 15% 25%;background: gray;">返回</button></a>
+					</div>
+					<div class="layui-input-inline" style="margin: auto;">
+						<a href="#"><button class="layui-btn s" style="width: 50%;margin: 15% 25%;background: orangered;">保存</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+
+	</body>
+	<script src="js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layer.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var app = angular.module("a", [])
+			.controller("c", function($scope) {
+
+				$scope.jifen_exchangelist_arr = [{
+						img: "img/other/cover.jpg",
+						type: "食用油",
+						jifen: "3000",
+						price: "￥200"
+					},
+					{
+						img: "img/other/cover.jpg",
+						type: "金龙鱼",
+						jifen: "9999",
+						price: "$40"
+					},
+					{
+						img: "img/other/cover.jpg",
+						type: "花生油",
+						jifen: "2000",
+						price: "￥100"
+					},
+					{
+						img: "img/other/cover.jpg",
+						type: "调和油",
+						jifen: "1800",
+						price: "￥80"
+					},
+					{
+						img: "img/other/cover.jpg",
+						type: "食用油",
+						jifen: "3000",
+						price: "￥200"
+					},
+					{
+						img: "img/other/cover.jpg",
+						type: "金龙鱼",
+						jifen: "9999",
+						price: "$40"
+					},
+					{
+						img: "img/other/cover.jpg",
+						type: "花生油",
+						jifen: "2000",
+						price: "￥100"
+					},
+					{
+						img: "img/other/cover.jpg",
+						type: "调和油",
+						jifen: "1800",
+						price: "￥80"
+					}
+				]
+
+				
+				//三级联动
+				$scope.arr = citiesarr ;
+				var code,code1,code2
+				$("#s1").change(function(){
+					console.log()
+					code = $("#s1 option:selected").attr("code")
+					$scope.brr = []
+					for (var i = 0;i<$scope.arr.length;i++) {
+						if($scope.arr[i]['s'] == code && $scope.arr[i]['l'] == 2){
+							$scope.brr.push($scope.arr[i])
+						}
+					}
+					// 再某个变量（$scope.xxx）发生值的变化之后，使用$scope.$apply() 将新的值重新应用到app中，
+					$scope.$apply()  //***
+				})
+				$("#s2").change(function(){
+					console.log(222)
+					code1 = $("#s2 option:selected").attr("code1")
+					$scope.crr = []
+					for (var i = 0;i<$scope.arr.length;i++) {
+						if($scope.arr[i]['s'] == code && $scope.arr[i]['di'] == code1 && $scope.arr[i]['l'] == 3){
+							$scope.crr.push($scope.arr[i])
+						}
+					}
+					// 再某个变量（$scope.xxx）发生值的变化之后，使用$scope.$apply() 将新的值重新应用到app中，
+					$scope.$apply()  //***
+				})
+				
+				
+				//兑换
+				$(function() {
+					$(".duihuan").click(function() {
+						console.log(123);
+						layer.confirm('确认要兑换吗？', {
+							btn: ['兑换', '取消'] //可以无限个按钮
+								,
+							btn2: function(index, layero) {
+								//按钮【取消】的回调
+							}
+						}, function(index, layero) {
+							//按钮【兑换】的回调
+							layer.msg('请输入地址');
+							//显示输入地址弹窗
+							$(".writeAddr").css("display","block");
+							//输入完成后隐藏该弹窗
+							$(".writeAddr button").click(function(){
+								$(".writeAddr").css("display","none");
+							})
+							
+							
+						});
+
+					})
+				})
+
+			})
+		
+		.filter("sheng" , function(){
+			return function(value){
+				var brr = []
+				for (var i = 0;i<value.length;i++) {
+					if(value[i]['l'] == 1){
+						brr.push(value[i])
+					}
+				}
+				return brr
+			}
+		})
+		
+		
+		//banner
+		var mySwiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination', //分页容器的css选择器
+			paginationClickable: true,
+			spaceBetween: 30,
+			centeredSlides: true,
+			autoplay: 3000,
+			autoplayDisableOnInteraction: false,
+		})
+	</script>
+
+</html>

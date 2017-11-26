@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>youhopelife</title>
+		<link rel="shortcut icon" href="./img/logo.ico" />
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/tmp.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/layer.css"/>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/*banner*/
+			.swiper-container {
+		        width: 100%;
+		    }
+		    .swiper-wrapper{
+		    	width: 500%;
+		    	overflow: hidden;
+		    }
+		    .swiper-slide {
+		        text-align: center;
+		        font-size: 18px;
+		        background: #fff;
+		        float: left;
+		    }
+		    
+		    
+		</style>
+		
+	</head>
+	<div id="sub9"></div>
+	<body ng-app="a" ng-controller="c">
+		<!--头部引用-->
+		<div ng-include="'template/header.html'"></div>
+		
+		<!--banner-->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="img/banner/ban1.jpg"/></div>
+				<div class="swiper-slide"><img src="img/banner/ban2.jpg"/></div>
+				<div class="swiper-slide"><img src="img/banner/ban3.jpg"/></div>
+				<div class="swiper-slide"><img src="img/banner/ban4.jpg"/></div>
+				<div class="swiper-slide"><img src="img/banner/ban5.jpg"/></div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	    
+		
+		<!--adlist-->
+		<div class="ad-list">
+			<ul class="item">
+				<li><a href="#"><img src="img/ad-list1.jpg"/></a></li>
+				<li><a href="#"><img src="img/ad-list2.jpg"/></a></li>
+				<li><a href="#"><img src="img/ad-list3.jpg"/></a></li>
+				<li><a href="#"><img src="img/ad-list4.jpg"/></a></li>
+			</ul>
+		</div>
+		
+		<!--精选商家-->
+		<div class="good-choice">
+			<div class="choice">
+				<span class="text1">精选</span>
+				<span class="text2">商家</span>
+				<span class="text3">Brand selection</span>
+			</div>
+			<div class="choice-imgs">
+				<a href="#"><img src="img/zhaoshang1.jpg"/></a>
+				<ul>
+					<li ng-repeat="x in arr1"><a href="shopdetail.html"><img src="img/{{x}}"/></a></li>
+				</ul>
+			</div>
+		</div>
+		<!--精选商家width-ad-->
+		<div class="width-ad"><a href="#"><img src="img/width-ad.jpg"/></a></div>
+		<br />
+		
+		<!--餐饮-->
+		<div id="sub0"></div>
+		<div class="adlistbox adlistbox1">
+			<div class="marks">
+				<div><img src="img/{{canyin.littleIcon}}"/>餐饮</div>
+				<ul>
+					<li ng-repeat="x in canyin.type track by $index"><a href="#">{{x}}</a></li>
+					<li class="more"><a href="#">更多</a></li>
+				</ul>
+			</div>
+			<div class="choice-imgs">
+				<a href="#"><img src="img/{{canyin.bigImg}}"/></a>
+				<!--火锅列表-->
+				<ul ng-repeat="x in canyin.subject track by $index">
+					<li ng-repeat="y in x track by $index">
+						<a href="shopdetail.html"><img src="img/{{y.img}}"/></a>
+						<p class="title1"><i class="icon-title"></i><a href="shopdetail.html">{{y.title}}</a></p>
+						<p><i class="icon-phone"></i><a>{{y.tel}}</a></p>
+						<p><i class="icon-addres"></i><a>{{y.addr}}</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--餐饮width-ad-->
+		<div class="width-ad"><a href="#"><img src="img/width-ad2.jpg"/></a></div>
+		<br />
+		
+		<!--服饰-->
+		<div id="sub1"></div>
+		<div class="adlistbox adlistbox2">
+			<div class="marks">
+				<div><img src="img/{{fushi.littleIcon}}"/>服饰</div>
+				<ul>
+					<li ng-repeat="x in fushi.type track by $index"><a href="#">{{x}}</a></li>
+					<li class="more"><a href="#">更多</a></li>
+				</ul>
+			</div>
+			<div class="choice-imgs">
+				<a href="#"><img src="img/{{fushi.bigImg}}"/></a>
+				<!--火锅列表-->
+				<ul ng-repeat="x in fushi.subject track by $index">
+					<li ng-repeat="y in x track by $index">
+						<a href="shopdetail.html"><img src="img/{{y.img}}"/></a>
+						<p class="title1"><i class="icon-title"></i><a href="shopdetail.html">{{y.title}}</a></p>
+						<p><i class="icon-phone"></i><a>{{y.tel}}</a></p>
+						<p><i class="icon-addres"></i><a>{{y.addr}}</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--服饰width-ad-->
+		<div class="width-ad"><a href="#"><img src="img/width-ad3.jpg"/></a></div>
+		<br />
+		
+		<!--娱乐-->
+		<div id="sub2"></div>
+		<div class="adlistbox adlistbox3">
+			<div class="marks">
+				<div><img src="img/{{yule.littleIcon}}"/>娱乐</div>
+				<ul>
+					<li ng-repeat="x in yule.type track by $index"><a href="#">{{x}}</a></li>
+					<li class="more"><a href="#">更多</a></li>
+				</ul>
+			</div>
+			<div class="choice-imgs">
+				<a href="#"><img src="img/{{yule.bigImg}}"/></a>
+				<!--火锅列表-->
+				<ul ng-repeat="x in yule.subject track by $index">
+					<li ng-repeat="y in x track by $index">
+						<a href="shopdetail.html"><img src="img/{{y.img}}"/></a>
+						<p class="title1"><i class="icon-title"></i><a href="shopdetail.html">{{y.title}}</a></p>
+						<p><i class="icon-phone"></i><a>{{y.tel}}</a></p>
+						<p><i class="icon-addres"></i><a>{{y.addr}}</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--娱乐width-ad-->
+		<div class="width-ad"><a href="#"><img src="img/width-ad4.jpg"/></a></div>
+		<br />
+		
+		<!--家具-->
+		<div id="sub3"></div>
+		<div class="adlistbox adlistbox4">
+			<div class="marks">
+				<div><img src="img/{{jiaju.littleIcon}}"/>家具</div>
+				<ul>
+					<li ng-repeat="x in jiaju.type track by $index"><a href="#">{{x}}</a></li>
+					<li class="more"><a href="#">更多</a></li>
+				</ul>
+			</div>
+			<div class="choice-imgs">
+				<a href="#"><img src="img/{{jiaju.bigImg}}"/></a>
+				<!--火锅列表-->
+				<ul ng-repeat="x in jiaju.subject track by $index">
+					<li ng-repeat="y in x track by $index">
+						<a href="shopdetail.html"><img src="img/{{y.img}}"/></a>
+						<p class="title1"><i class="icon-title"></i><a href="shopdetail.html">{{y.title}}</a></p>
+						<p><i class="icon-phone"></i><a>{{y.tel}}</a></p>
+						<p><i class="icon-addres"></i><a>{{y.addr}}</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--家具width-ad-->
+		<div class="width-ad"><a href="#"><img src="img/width-ad5.jpg"/></a></div>
+		<br />
+		
+		<!--零售-->
+		<div id="sub4"></div>
+		<div class="adlistbox adlistbox5">
+			<div class="marks">
+				<div><img src="img/{{lingshou.littleIcon}}"/>零售</div>
+				<ul>
+					<li ng-repeat="x in lingshou.type track by $index"><a href="#">{{x}}</a></li>
+					<li class="more"><a href="#">更多</a></li>
+				</ul>
+			</div>
+			<div class="choice-imgs">
+				<a href="#"><img src="img/{{lingshou.bigImg}}"/></a>
+				<!--火锅列表-->
+				<ul ng-repeat="x in lingshou.subject track by $index">
+					<li ng-repeat="y in x track by $index">
+						<a href="shopdetail.html"><img src="img/{{y.img}}"/></a>
+						<p class="title1"><i class="icon-title"></i><a href="shopdetail.html">{{y.title}}</a></p>
+						<p><i class="icon-phone"></i><a>{{y.tel}}</a></p>
+						<p><i class="icon-addres"></i><a>{{y.addr}}</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--零售width-ad-->
+		<div class="width-ad"><a href="#"><img src="img/width-ad6.jpg"/></a></div>
+		<br />
+		
+		<!--日化-->
+		<div id="sub5"></div>
+		<div class="adlistbox adlistbox6">
+			<div class="marks">
+				<div><img src="img/{{rihua.littleIcon}}"/>日化</div>
+				<ul>
+					<li ng-repeat="x in rihua.type track by $index"><a href="#">{{x}}</a></li>
+					<li class="more"><a href="#">更多</a></li>
+				</ul>
+			</div>
+			<div class="choice-imgs">
+				<a href="#"><img src="img/{{rihua.bigImg}}"/></a>
+				<!--火锅列表-->
+				<ul ng-repeat="x in rihua.subject track by $index">
+					<li ng-repeat="y in x track by $index">
+						<a href="shopdetail.html"><img src="img/{{y.img}}"/></a>
+						<p class="title1"><i class="icon-title"></i><a href="shopdetail.html">{{y.title}}</a></p>
+						<p><i class="icon-phone"></i><a>{{y.tel}}</a></p>
+						<p><i class="icon-addres"></i><a>{{y.addr}}</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--零售width-ad-->
+		<div class="width-ad"><a href="#"><img src="img/width-ad7.jpg"/></a></div>
+		<br />
+		
+		<!--建材-->
+		<div id="sub6"></div>
+		<div class="adlistbox adlistbox7">
+			<div class="marks">
+				<div><img src="img/{{jiancai.littleIcon}}"/>建材</div>
+				<ul>
+					<li ng-repeat="x in jiancai.type track by $index"><a href="#">{{x}}</a></li>
+					<li class="more"><a href="#">更多</a></li>
+				</ul>
+			</div>
+			<div class="choice-imgs">
+				<a href="#"><img src="img/{{jiancai.bigImg}}"/></a>
+				<!--火锅列表-->
+				<ul ng-repeat="x in jiancai.subject track by $index">
+					<li ng-repeat="y in x track by $index">
+						<a href="shopdetail.html"><img src="img/{{y.img}}"/></a>
+						<p class="title1"><i class="icon-title"></i><a href="shopdetail.html">{{y.title}}</a></p>
+						<p><i class="icon-phone"></i><a>{{y.tel}}</a></p>
+						<p><i class="icon-addres"></i><a>{{y.addr}}</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--建材width-ad-->
+		<div class="width-ad"><a href="#"><img src="img/width-ad8.jpg"/></a></div>
+		<br />
+		
+		<!--酒店-->
+		<div id="sub7"></div>
+		<div class="adlistbox adlistbox8">
+			<div class="marks">
+				<div><img src="img/{{jiudian.littleIcon}}"/>酒店</div>
+				<ul>
+					<li ng-repeat="x in jiudian.type track by $index"><a href="#">{{x}}</a></li>
+					<li class="more"><a href="#">更多</a></li>
+				</ul>
+			</div>
+			<div class="choice-imgs">
+				<a href="#"><img src="img/{{jiudian.bigImg}}"/></a>
+				<!--火锅列表-->
+				<ul ng-repeat="x in jiudian.subject track by $index">
+					<li ng-repeat="y in x track by $index">
+						<a href="shopdetail.html"><img src="img/{{y.img}}"/></a>
+						<p class="title1"><i class="icon-title"></i><a href="shopdetail.html">{{y.title}}</a></p>
+						<p><i class="icon-phone"></i><a>{{y.tel}}</a></p>
+						<p><i class="icon-addres"></i><a>{{y.addr}}</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--酒店width-ad-->
+		<div class="width-ad"><a href="#"><img src="img/width-ad9.jpg"/></a></div>
+		<br />
+		
+		<!--旅游-->
+		<div id="sub8"></div>
+		<div class="adlistbox adlistbox9">
+			<div class="marks">
+				<div><img src="img/{{lvyou.littleIcon}}"/>旅游</div>
+				<ul>
+					<li ng-repeat="x in lvyou.type track by $index"><a href="#">{{x}}</a></li>
+					<li class="more"><a href="#">更多</a></li>
+				</ul>
+			</div>
+			<div class="choice-imgs">
+				<a href="#"><img src="img/{{lvyou.bigImg}}"/></a>
+				<!--火锅列表-->
+				<ul ng-repeat="x in lvyou.subject track by $index">
+					<li ng-repeat="y in x track by $index">
+						<a href="shopdetail.html"><img src="img/{{y.img}}"/></a>
+						<p class="title1"><i class="icon-title"></i><a href="shopdetail.html">{{y.title}}</a></p>
+						<p><i class="icon-phone"></i><a>{{y.tel}}</a></p>
+						<p><i class="icon-addres"></i><a>{{y.addr}}</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--旅游width-ad-->
+		<div class="width-ad"><a href="#"><img src="img/width-ad10.jpg"/></a></div>
+		<br />
+		
+		<!--侧边楼层-->
+		<ul class="floors" style="display: none;">
+			<li>
+				<a href="#sub0">
+					<span>&nbsp;1&nbsp;&nbsp;F&nbsp;</span>
+					餐饮
+				</a>
+			</li>
+			<li>
+				<a href="#sub1">
+					<span>&nbsp;2&nbsp;&nbsp;F&nbsp;</span>
+					服饰
+				</a>
+			</li>
+			<li>
+				<a href="#sub2">
+					<span>&nbsp;3&nbsp;&nbsp;F&nbsp;</span>
+					娱乐
+				</a>
+			</li>
+			<li>
+				<a href="#sub3">
+					<span>&nbsp;4&nbsp;&nbsp;F&nbsp;</span>
+					家具
+				</a>
+			</li>
+			<li>
+				<a href="#sub4">
+					<span>&nbsp;5&nbsp;&nbsp;F&nbsp;</span>
+					零售
+				</a>
+			</li>
+			<li>
+				<a href="#sub5">
+					<span>&nbsp;6&nbsp;&nbsp;F&nbsp;</span>
+					日化
+				</a>
+			</li>
+			<li>
+				<a href="#sub6">
+					<span>&nbsp;7&nbsp;&nbsp;F&nbsp;</span>
+					建材
+				</a>
+			</li>
+			<li>
+				<a href="#sub7">
+					<span>&nbsp;8&nbsp;&nbsp;F&nbsp;</span>
+					酒店
+				</a>
+			</li>
+			<li>
+				<a href="#sub8">
+					<span>&nbsp;9&nbsp;&nbsp;F&nbsp;</span>
+					旅游
+				</a>
+			</li>
+			<li>
+				<a href="#sub9">
+					<img src="img/other/cb_01.jpg"/>
+					顶部
+				</a>
+			</li>
+			<li>
+				<a href="#" class="sug">
+					<img src="img/other/cb_02.jpg"/>
+					反馈
+				</a>
+			</li>
+			<li>
+				<a href="otherInfo.html">
+					<img src="img/other/cb_03.jpg"/>
+				问题
+				</a>
+			</li>
+		</ul>
+		
+		<!--点击反馈弹出的部分-->
+		<div class="somsuggestion">
+			<div class="opacity"></div>
+			<div class="body-area">
+				<div class="textareaBox">
+					<textarea name="suggest" placeholder="请输入您的意见，我们将与您共同成长(不得超过200字)" maxlength="200"></textarea>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-input-inline" style="margin: auto;margin-left: 20%;">
+						<a href="#"><button class="layui-btn r" style="width: 50%;margin: 5% 25%;background: gray;">返回</button></a>
+					</div>
+					<div class="layui-input-inline" style="margin: auto;">
+						<a href="#"><button class="layui-btn s thanks" style="width: 50%;margin: 5% 25%;background: orangered;">提交</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!--尾部引用-->
+		<div ng-include="'./template/footer.html'"></div>
+	</body>
+	
+	<script src="js/layer.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var app = angular.module("a",[])
+		.controller("c",function($scope){
+			$scope.arr1 = [
+				"zhaoshang2.jpg","zhaoshang3.jpg","zhaoshang4.jpg","zhaoshang5.jpg","zhaoshang6.jpg","zhaoshang7.jpg"
+				,"zhaoshang8.jpg","zhaoshang9.jpg","zhaoshang10.jpg","zhaoshang11.jpg","zhaoshang12.jpg","zhaoshang13.jpg"
+			]
+			
+			//餐饮
+			$scope.canyin = {
+				littleIcon:"adlist-logo1.jpg",
+				bigImg:"adlist-bimg1.jpg",
+				type:["火锅","自助餐","小吃快餐","日韩料理","西餐","烧烤烧肉","东北菜"],
+				subject:[
+					//火锅ul
+					[
+						//每个li
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					//自助餐ul
+					[
+						//每个li
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					//小吃快餐ul
+					[
+						//每个li
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					//日韩料理ul
+					[
+						//每个li
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					//西餐ul
+					[
+						//每个li
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					//烤肉ul
+					[
+						//每个li
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					//东北菜ul
+					[
+						//每个li
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					]
+				]
+			}
+			
+			
+			//服饰
+			$scope.fushi = {
+				littleIcon:"adlist-logo2.jpg",
+				bigImg:"adlist-bimg2.jpg",
+				type:["男装","凉鞋凉拖","潮流女包","精品男包","功能箱包","其他服饰","女装"],
+				subject:[
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					]
+					
+				]
+				
+			}
+						
+			//娱乐
+			$scope.yule = {
+				littleIcon:"adlist-logo3.jpg",
+				bigImg:"adlist-bimg3.jpg",
+				type:["男装","凉鞋凉拖","潮流女包","精品男包","功能箱包","其他服饰","女装"],
+				subject:[
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					]
+				]
+			}
+			
+			//家具
+			$scope.jiaju = {
+				littleIcon:"adlist-logo4.jpg",
+				bigImg:"adlist-bimg4.jpg",
+				type:["成套家具","床类","柜类","床垫","沙发","桌椅","椅凳","架箱类"],
+				subject:[
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					]
+				]
+			}
+			
+			//零售
+			$scope.lingshou = {
+				littleIcon:"adlist-logo5.jpg",
+				bigImg:"adlist-bimg5.jpg",
+				type:["超市","水果生鲜","日用品","百货","配件","其他产品"],
+				subject:[
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					]
+				]
+			}
+			
+			//日化
+			$scope.rihua = {
+				littleIcon:"adlist-logo6.jpg",
+				bigImg:"adlist-bimg6.jpg",
+				type:["超市","水果生鲜","日用品","百货","配件","其他产品"],
+				subject:[
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					]
+				]
+			}
+			
+			//建材
+			$scope.jiancai = {
+				littleIcon:"adlist-logo7.jpg",
+				bigImg:"adlist-bimg7.jpg",
+				type:["基础建材","卫浴洁具","厨卫电器","卫浴五金","地板灯暖","灯具开关"],
+				subject:[
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					]
+				]
+			}
+					
+			//酒店
+			$scope.jiudian = {
+				littleIcon:"adlist-logo8.jpg",
+				bigImg:"adlist-bimg8.jpg",
+				type:["经济型酒店","豪华酒店","主题酒店","度假酒店","公寓型酒店","青年旅社"],
+				subject:[
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					]
+				]
+			}
+			
+			//旅游
+			$scope.lvyou = {
+				littleIcon:"adlist-logo9.jpg",
+				bigImg:"adlist-bimg9.jpg",
+				type:["景点","主题公园","水上公园","动植物园","海洋馆","展览船","游船"],
+				subject:[
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"}
+					],
+					[
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.2.jpg",title:"澳牛坊肥牛海鲜火锅",tel:"13455577902",addr:"芝罘区解放路162号"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"},
+						{img:"adlist-simg1.1.jpg",title:"波波麻辣香锅",tel:"15253562394",addr:"芝罘区小南洪街"}
+					]
+				]
+			}
+			
+			
+		})
+		
+		//banner
+		var mySwiper = new Swiper('.swiper-container',{
+			pagination: '.swiper-pagination',//分页容器的css选择器
+			paginationClickable: true,
+			spaceBetween: 30,
+	        centeredSlides: true,
+	        autoplay : 3000,
+	        autoplayDisableOnInteraction : false,
+		})
+		
+		
+	</script>
+	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		console.log($(document));
+//		console.log($(document).scrollTop());
+		$(function(){
+			setInterval(function(){
+				if($(document).scrollTop() >= 600){
+					$(".floors").css("display","block");
+				}else{
+					$(".floors").css("display","none");
+				}
+			},10);
+		})
+		
+		//反馈js
+		$(".sug").click(function(){
+			$(".somsuggestion").css("display","block");
+			$(".r").click(function(){
+				$(".somsuggestion").css("display","none");
+			})
+			$(".s").click(function(){
+				$(".somsuggestion").css("display","none");
+				layer.msg("非常感谢您的建议！");
+			})
+		})
+	</script>
+</html>

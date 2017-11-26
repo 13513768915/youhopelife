@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/tmp.css"/>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			html,
+			body {
+				width: 100vw;
+				height: 100vh;
+			}
+			section {
+				/*width: 80%;*/
+				width: 1180px;
+				margin: 20px auto;
+				margin-top: 200px;
+				border: 1px solid #d3d3d3;
+			}
+			
+			@media only screen and (max-width:1300px) {
+				header,
+				section,
+				footer {
+					width: 1300px;
+				}
+			}
+			
+			.body {
+				margin: 30px;
+			}
+			
+			.head11 {
+				padding-bottom: 30px;
+				border-bottom: 1px solid #d3d3d3;
+			}
+			
+			.step {
+				float: right;
+				position: relative;
+			}
+			
+			.my-shopcar,
+			.order-info,
+			.order-success {
+				width: 200px;
+				height: 50px;
+				float: left;
+				background: #ff6c00;
+				text-align: center;
+				line-height: 50px;
+				float: left;
+				cursor: pointer;
+			}
+			
+			.boult {
+				width: 0;
+				height: 0;
+				border-top: 25px solid transparent;
+				border-left: 25px solid #ff6c00;
+				border-bottom: 25px solid transparent;
+				float: left;
+			}
+			
+			.boult1 {
+				position: absolute;
+				width: 0;
+				height: 0;
+				border-top: 25px solid transparent;
+				border-left: 25px solid white;
+				border-bottom: 25px solid transparent;
+				float: right;
+			}
+			
+			.arrow {
+				width: 50px;
+				height: 50px;
+				background: url(img/icons.png);
+				background-position: -291px -1423px;
+				float: left;
+				padding-left: 15px;
+			}
+			
+			.txt {
+				line-height: 50px;
+				font-size: 2em;
+				color: #666666;
+			}
+			
+			.shopcar {
+				margin-top: 50px;
+				padding-bottom: 15px;
+				border-bottom: 1px solid #d3d3d3;
+			}
+			
+			table {
+				margin-top: 20px;
+				border: 1px solid #d3d3d3;
+				width: 100%;
+			}
+			
+			.first {
+				height: 50px;
+				background: #f2f2f2;
+				border: none;
+			}
+			
+			.inp {
+				width: 50px;
+			}
+			
+			.title {
+				text-align: left;
+			}
+			
+			.second {
+				height: 100px;
+				border-bottom: 1px solid;
+			}
+			
+			.third {
+				height: 1px;
+				background: black;
+			}
+			.btn{
+				width: 30px;
+				height: 30px;
+				outline: none;
+			}
+			.inpt{
+				width: 50px;
+				height: 26px;
+				outline: none;
+				text-align: center;
+			}
+			td{
+				text-align: center;
+			}
+			/*//*/
+			
+			.opreation{
+				margin-top: 20px;
+				height: 50px;
+				line-height: 50px;
+				/*padding-bottom: 20px;
+				border-bottom: 1px solid;*/
+			}
+			.all-select,.del{
+				text-decoration: none;
+				color: #009be8;
+				font-size: 18px;
+			}
+			.del{
+				margin-left: 20px;
+			}
+			.pay{
+				width:150px;
+				height: 50px;
+				border-radius:8px ;
+				border: none;
+				outline: none;
+				background: #ff6c00;
+				float: right;
+				cursor: pointer;
+			}
+			.price-show{
+				float: right;
+				margin-right: 20px;
+				font-size: 18px;
+			}
+			.price{
+				font-size:22px ;
+				color: #ff6c00;
+			}
+			.btn1,.btn2{
+				width: 20px;
+				height: 30px;
+				line-height: 30px;
+				vertical-align: -5%;
+			}
+			
+			
+			.info-path {
+				float: right;
+			}
+			
+			.info-path>div {
+				float: left;
+			}
+			
+			.info-path-box {
+				width: 200px;
+				height: 42px;
+				line-height: 42px;
+				text-align: center;
+				color: white;
+				font-size: 18px;
+				background-color: #ff6c00;
+			}
+			
+			.info-path-arrow {
+				width: 32px;
+				height: 42px;
+				background-image: url(img/icons.png);
+				background-position: -255px -144px;
+			}
+			
+			.info-path-arrow1 {
+				width: 32px;
+				height: 42px;
+				background-image: url(img/icons.png);
+				background-position: -255px -220px;
+			}
+		</style>
+	</head>
+
+	<body ng-app="app" ng-controller="appCtrl">
+		
+		<!--头部引用-->
+		<div ng-include="'template/header.html'"></div>
+		
+		<section>
+			<div class="body">
+				<div class="head11">
+					<a href="#"><img src="img/logo.png" /></a>
+					<!--<div class="step">-->
+						<!--<div class="my-shopcar">我的购物车</div>
+						<div class="boult"></div>
+						<div class="boult1" style="left: 225px;"></div>
+						<div class="order-info">确认订单信息</div>
+						<div class="boult"></div>
+						<div class="boult1" style="left: 450px;"></div>
+						<div class="order-success">订单提交成功</div>
+						<div class="boult"></div>-->
+						<div class="info-path">
+						<div class="info-path-box">我的购物车</div>
+						<div class="info-path-arrow"></div>
+						<div class="info-path-box" style="background-color: #e5e5e5;color:black">确认订单信息</div>
+						<div class="info-path-arrow1"></div>
+						<div class="info-path-box" style="background-color: #e5e5e5;color:black">订单成功提交</div>
+					<!--</div>-->
+					</div>
+				</div>
+				<div class="shopcar">
+					<div class="arrow"></div>
+					<div class="txt">购物车</div>
+				</div>
+				<div class="shopcar-list" ng-app="app" ng-controller="appCtrl">
+					<table cellpadding="0" cellspacing="0" >
+						<tr class="first">
+							<th class="inp"><input type="checkbox" class="all"/></th>
+							<th class="title">商品</th>
+							<th>规格</th>
+							<th>单价</th>
+							<th>数量</th>
+							<th>金额</th>
+							<th>操作</th>
+						</tr>
+						
+						<tr class="second">
+							<td class="inp"><input type="checkbox" class="checedBox" /></td>
+							<td class="title">
+								<a href="detail.html">
+									<img src="img/logo.png" style="width: 70px;height: 70px;" />
+								</a>
+							</td>
+							<td>2小时</td>
+							<td>200</td>
+							<td style="width: 150px;">
+								<button class="btn1">-</button><input type="text" ng-model="count"  class="inpt"/><button class="btn2">+</button>
+							</td>
+							<td>200</td>
+							<td><a href="#" class="del">删除</a></td>
+						</tr>
+						<tr class="second">
+							<td class="inp"><input type="checkbox" class="checedBox" /></td>
+							<td class="title">
+								<a href="detail.html">
+									<img src="img/logo.png" style="width: 70px;height: 70px;" />
+								</a>
+							</td>
+							<td>2小时</td>
+							<td>200</td>
+							<td style="width: 150px;">
+								<button class="btn1">-</button><input type="text" ng-model="count"  class="inpt"/><button class="btn2">+</button>
+							</td>
+							<td>200</td>
+							<td><a href="#" class="del">删除</a></td>
+						</tr>
+						<tr class="second">
+							<td class="inp"><input type="checkbox" class="checedBox" /></td>
+							<td class="title">
+								<a href="detail.html">
+									<img src="img/logo.png" style="width: 70px;height: 70px;" />
+								</a>
+							</td>
+							<td>2小时</td>
+							<td>200</td>
+							<td style="width: 150px;">
+								<button class="btn1">-</button><input type="text" ng-model="count"  class="inpt"/><button class="btn2">+</button>
+							</td>
+							<td>200</td>
+							<td><a href="#" class="del">删除</a></td>
+						</tr>
+						
+						<tr class="third">
+							<td colspan="7" style="background-color: #d3d3d3;"></td>
+						</tr>
+						<tr class="second">
+							<td colspan="6" style="text-align: right;font-size: 18px;">商品金额: 								<p style="margin-top:10px ;color: #ff6c00;">$200.00</p>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="opreation">
+					<a href="#" class="all-select">全选</a>
+					<a href="#" class="del">批量删除</a>
+					<button class="pay">去结算</button>
+					<span class="price-show">商品总计: <span class="price">$</span><span class="price">0.00</span> </span>
+				</div>
+			</div>
+		</section>
+		
+		<!--尾部引用-->
+		<div ng-include="'./template/footer.html'"></div>
+		
+	</body>
+	<script type="text/javascript">
+		var app = angular.module("a",[])
+		.controller("c",function($scope){
+			
+		})
+	</script>
+	<script type="text/javascript">
+		var app = angular.module('app', [])
+			.controller('appCtrl', function($scope, $http) {
+				$http({
+					method: 'post',
+					url: 'http://localhost/angular/07table.php'
+				}).then(function successCallback(res) {
+					// 请求成功执行代码
+					$scope.list = res.data.records;
+				}, function errorCallback(res) {
+					// 请求失败执行代码
+					console.log('')
+				});
+				//按钮置灰
+				$scope.canclick=true;
+				$scope.count = 1;
+				$scope.m = function() {
+					$scope.count--;
+					if($scope.count <= 0) {
+						$scope.canclick=false;
+						$scope.count = 0;
+					}
+					console.log($scope.canclick)
+				}
+				$scope.p = function() {
+					$scope.count++;
+					if($scope.count > 0) {
+						$scope.canclick=true;
+					}
+				}
+			})
+			
+			
+			//全选
+			var count = 0;
+			$(".all-select").click(function(){
+				for (var i=0;i<$(".checedBox").length;i++) {
+					if(($(".checedBox")[i].checked == false)){
+						$(".checedBox")[i].checked = !$(".checedBox")[i].checked;
+					}
+				}
+				$(".all")[0].checked = "checked";
+			})
+			setInterval(function(){
+				for (var i=0;i<$(".checedBox").length;i++) {
+					if(($(".checedBox")[i].checked == false)){
+						$(".all")[0].checked = false;
+					}
+				}
+				var count = 0;
+				for (var i=0;i<$(".checedBox").length;i++) {
+					if(($(".checedBox")[i].checked == true)){
+						count++;
+						if(count == $(".checedBox").length){
+							$(".all")[0].checked = true;
+						}
+					}
+				}
+			},500)
+			//取消全选
+			$(".all").click(function(){
+				for (var i=0;i<$(".checedBox").length;i++) {
+					if(($(".checedBox")[i].checked == true)){
+						$(".checedBox")[i].checked = !$(".checedBox")[i].checked;
+					}
+				}
+				$(".all")[0].checked = false;
+			})
+			//删除
+			$(".opreation .del").click(function(){
+				for (var i=0;i<$(".checedBox").length;i++) {
+					if(($(".checedBox")[i].checked == true)){
+//						console.log($(".checedBox")[i].parentNode.parentNode)
+						$(".checedBox")[i].parentNode.parentNode.style.display = "none";
+					}
+					
+				}
+			})
+			
+			$(".second .del").click(function(){
+//				console.log($(this).parent().parent());
+//				$(this).parentNode.parentNode.style.display = "none";
+				$(this).parent().parent().css("display","none");
+			})
+			
+			
+			//数量加减
+			$(".btn2").click(function(){
+//				console.log($(".btn2"));
+//				console.log($(this).parent().children().eq(1).val());
+				var v = $(this).parent().children().eq(1).val();
+				v++;
+				$(this).parent().children().eq(1).val(v);
+			})
+			$(".btn1").click(function(){
+				var v = $(this).parent().children().eq(1).val();
+				if(v == 0){
+					$(this).disable();
+				}else{
+					v--;
+					$(this).parent().children().eq(1).val(v);
+				}
+			})
+						
+	</script>
+
+</html>

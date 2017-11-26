@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="shortcut icon" href="./img/logo.ico" />
+		<link rel="stylesheet" type="text/css" href="css/city.css"/>
+		<link rel="stylesheet" type="text/css" href="css/tmp.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body ng-app="a" ng-controller="c">
+		<!--头部引用-->
+		<div ng-include="'template/header.html'"></div>
+		
+		<div class="v">
+			<div class="crumbs">
+				你当前的位置:
+				<a href="index.html">首页</a>
+				>
+				<p>切换城市</p>
+			</div>
+			<div class="city-list">
+				<div class="alone">
+					当前城市:
+					<a class="hot" href="">烟台</a>
+				</div>
+				<div class="alone">
+					热门城市:
+					<a href="">哈尔滨</a>
+					<a href="">烟台</a>
+				</div>
+				<div class="often">
+					<ul class="ordinary-list">	
+						<li class="item">
+							<span class="letter">A</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">安阳</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">B</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">北京</a>
+									<a href="">本溪</a>
+									<a href="">包头</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">C</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">长春</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">D</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">丹东</a>
+									<a href="">大连</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">D</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">抚顺</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">H</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">哈尔滨</a>
+									<a href="">邯郸</a>
+									<a href="">菏泽</a>
+									<a href="">呼和浩特</a>
+									<a href="">衡水</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">J</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">济南</a>
+									<a href="">焦作</a>
+									<a href="">锦州</a>
+									<a href="">吉林</a>
+									<a href="">济宁</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">L</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">洛阳</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">L</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">临沂</a>
+									<a href="">洛阳</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">N</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">南京</a>
+									<a href="">南昌</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">Q</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">秦皇岛</a>
+									<a href="">青岛</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">S</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">石家庄</a>
+									<a href="">上海</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">T</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">太原</a>
+									<a href="">唐山</a>
+									<a href="">天津</a>
+									<a href="">泰安</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">W</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">威海</a>
+									<a href="">武汉</a>
+									<a href="">无锡</a>
+									<a href="">潍坊</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">X</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">西安</a>
+									<a href="">邢台</a>
+									<a href="">新乡</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">Y</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">烟台</a>
+								</li>
+							</ul>
+						</li>
+						<li class="item">
+							<span class="letter">Z</span>
+							<ul class="ordinary-city">
+								<li class="item">
+									<a href="">张家口</a>
+									<a href="">淄博</a>
+									<a href="">郑州</a>
+									<a href="">枣庄</a>
+								</li>
+							</ul>
+						</li>		
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!--尾部引用-->
+		<div ng-include="'./template/footer.html'"></div>
+	</body>	
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var app = angular.module("a",[])
+		.controller("c",function($scope){
+			$(function(){
+				$(".ordinary-list a").click(function(){
+					window.location.href = "index.html"+"?city="+ $(this).text();
+					
+				})
+				
+				
+			})
+			
+			
+					
+		})
+		
+		
+		
+	</script>
+</html>

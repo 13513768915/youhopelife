@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="shortcut icon" href="./img/logo.ico" />
+		<link rel="stylesheet" type="text/css" href="css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="css/tmp.css" />
+		<script type="text/javascript" src="js/layui.js"></script>
+		<script type="text/javascript" src="js/angular.js"></script>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/jquery.fly.min.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			section {
+				/*width: 100vw;*/
+				width: 1180px;
+				margin: auto;
+				overflow: hidden;
+			}
+			
+			@media only screen and (max-width:1300px) {
+				header,
+				section,
+				footer {
+					width: 1500px;
+				}
+			}
+			/*.body {
+				width: 85%;
+				margin: 0 auto;
+				overflow: auto;
+			}*/
+			
+			.local {
+				height: 50px;
+				border-bottom: 1px solid #D3D3D3;
+				line-height: 50px;
+				font-size: 18px;
+				color: #999999;
+			}
+			
+			.path {
+				color: #ff6600;
+			}
+			
+			.con {
+				margin: 15px;
+				overflow: auto;
+				position: relative;
+			}
+			
+			.cover {
+				width: 450px;
+				float: left;
+				background: #f2f2f2;
+			}
+			
+			.pic {
+				width: 450px;
+				float: left;
+			}
+			
+			.pic1 {
+				width: 450px;
+				display: block;
+			}
+			
+			.small-group {
+				clear: both;
+				height: 70px;
+				padding: 10px 0;
+			}
+			
+			.prev {
+				background: url(img/icons.png);
+				background-position: 6px -266px;
+				width: 30px;
+				height: 70px;
+				float: left;
+				cursor: pointer;
+			}
+			
+			.next {
+				background: url(img/icons.png);
+				background-position: 6px -329px;
+				width: 30px;
+				height: 70px;
+				float: right;
+				cursor: pointer;
+			}
+			
+			.pic-list>ul {
+				list-style: none;
+				height: 70px;
+			}
+			
+			.pic-list>ul>li {
+				float: left;
+			}
+			
+			.pic-list>ul>li>img {
+				width: 70px;
+				height: 70px;
+			}
+			
+			.cover-big {
+				width: 450px;
+				height: 450px;
+				position: absolute;
+				left: 450px;
+				overflow: hidden;
+				display: none;
+			}
+			
+			.cover-big>img {
+				width: 2025px;
+				height: 2025px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: block;
+				z-index: 10!important;
+			}
+			
+			.box {
+				width: 100px;
+				height: 100px;
+				background: #cccccc;
+				opacity: 0.3;
+				display: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 9999;
+			}
+			/*左侧数据部分*/
+			
+			.data {
+				width: 550px;
+				float: left;
+				margin-left: 15px;
+			}
+			
+			.data>.title {
+				color: #449fe5;
+			}
+			
+			.data>.desc {
+				margin-top: 20px;
+				color: #666666;
+				padding-bottom: 25px;
+				border-bottom: 1px solid #D3D3D3;
+			}
+			
+			.sel-pri {
+				list-style: none;
+				margin-top: 30px;
+				height: 30px;
+				line-height: 30px;
+				padding-bottom: 30px;
+			}
+			
+			.sel-pri>li {
+				float: left;
+			}
+			
+			.sel-pri>li:last-child {
+				border: 1px solid #D3D3D3;
+				text-align: center;
+				color: #666666;
+				width: 150px;
+				height: 30px;
+				margin-left: 20px;
+				cursor: pointer;
+			}
+			
+			.operat-area {
+				border: 1px solid #D3D3D3;
+				overflow: auto;
+			}
+			
+			.operat-area>.text {
+				margin: 20px;
+			}
+			
+			.tatle {
+				float: right;
+				color: #9a9a9a;
+				font-size: 14px;
+			}
+			
+			.before-pri {
+				color: #747474;
+				text-decoration: line-through;
+				margin-left: 20px;
+				font-size: 14px;
+			}
+			
+			.now-pri {
+				color: #ff3300;
+				font-size: 18px;
+			}
+			/*//操作区*/
+			
+			.opreation {
+				list-style: none;
+				margin: 20px;
+				height: 45px;
+				margin-top: 40px;
+			}
+			
+			.opreation>li {
+				float: left;
+				display: list-item;
+				text-align: match-parent;
+			}
+			
+			.btn {
+				width: 30px;
+				height: 30px;
+				margin-top: 9.5px;
+				outline: none;
+			}
+			
+			.inpt {
+				width: 50px;
+				height: 26px;
+				margin-top: 9.5px;
+				outline: none;
+				text-align: center;
+			}
+			
+			.count {
+				height: 45px;
+				color: #747474;
+			}
+			
+			.count-text {
+				line-height: 45px;
+				float: left;
+			}
+			
+			.count-num {
+				float: left;
+				margin-left: 20px;
+			}
+			
+			.shopcar {
+				margin: 0 20px;
+			}
+			
+			.shopcar,
+			.buy {
+				height: 45px;
+				width: 140px;
+				background: orange;
+				line-height: 40px;
+				text-align: center;
+				border-radius: 8px;
+				color: white;
+				cursor: pointer;
+			}
+			/*图标部分*/
+			
+			.share {
+				margin-top: 20px;
+				/*overflow: auto;*/
+			}
+			
+			.share-icon {
+				width: 30px;
+				height: 30px;
+				background-image: url(img/icon/02.png);
+				background-size: 100% 100%;
+				float: left;
+				margin-top: 5px;
+			}
+			
+			.share-icon-add {
+				width: 40px;
+				height: 40px;
+				background: url(img/icon/分享.png);
+				background-size: 100% 100%;
+				float: left;
+				margin-left: 20px;
+				position: relative;
+				/*position: absolute;*/
+				z-index: 0!important;
+			}
+			
+			.share-icon-z {
+				width: 40px;
+				height: 40px;
+				background: url(img/icon/qq空间.png);
+				background-size: 100% 100%;
+				float: left;
+				margin-left: 5px;
+			}
+			
+			.share-icon-x {
+				width: 40px;
+				height: 40px;
+				background: url(img/icon/微博.png);
+				background-size: 100% 100%;
+				float: left;
+				margin-left: 5px;
+			}
+			
+			.share-icon-w {
+				width: 40px;
+				height: 40px;
+				background: url(img/icon/微信.png);
+				background-size: 100% 100%;
+				float: left;
+				margin-left: 5px;
+			}
+			
+			.share-icon-p {
+				width: 40px;
+				height: 40px;
+				background: url(img/icon/朋友圈.png);
+				background-size: 100% 100%;
+				float: left;
+				margin-left: 5px;
+			}
+			
+			.share-text {
+				line-height: 40px;
+				margin-left: 10px;
+				float: left;
+			}
+			/*hover: 分享块;*/
+			
+			.add {}
+			/**/
+			
+			.side {
+				/*margin: 50px 30px;*/
+				/*border: 1px solid red;*/
+				/*float: left;*/
+				float: right;
+			}
+			
+			.side-first,
+			.side-second {
+				width: 120px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				border-radius: 8px;
+				font-size: 14px;
+			}
+			
+			.side-first {
+				background: #007AFF;
+			}
+			
+			.side-first>a {
+				color: white;
+				text-decoration: none;
+			}
+			
+			.side-second {
+				background: #ec6917;
+				margin-top: 50px;
+				position: relative;
+				color: white;
+			}
+			
+			.qq {
+				width: 26px;
+				height: 26px;
+				background: url(img/icon/qq.png);
+				background-size: 100% 100%;
+				position: absolute;
+				left: 15px;
+				top: 2px;
+			}
+			
+			.add-pic {
+				margin-top: -320px;
+				display: none;
+			}
+			
+			.u-flyer {
+				width: 100px;
+				height: 100px;
+				border-radius: 50px;
+				z-index: 9999;
+			}
+			
+			#msg {
+				position: fixed;
+				top: 300px;
+				right: 35px;
+				z-index: 10000;
+				width: 1px;
+				height: 52px;
+				line-height: 52px;
+				font-size: 20px;
+				text-align: center;
+				color: #fff;
+				background: #360;
+				display: none
+			}
+			/*************************/
+			
+			.pinglun {
+				margin: 0 auto;
+				width: 100%;
+			}
+			
+			.pinglun .picture {
+				margin-left: 2%;
+				width: 40px;
+				height: 40px;
+				/*border: 1px solid red;*/
+				overflow: hidden;
+				float: left;
+			}
+			
+			.pinglun .picture img {
+				width: 100%;
+			}
+			
+			.pinglun .name {
+				width: 200px;
+				height: 40px;
+				font-size: 16px;
+				float: none;
+				margin-left: 6%;
+				line-height: 40px;
+				font-family: "微软雅黑";
+			}
+			
+			.pinglun .connet {
+				width: 89%;
+				margin-left: 4%;
+			}
+			
+			.pinglun .time {
+				margin-left: 84%;
+				height: 20px;
+				width: 150px;
+			}
+			
+			.pinglun .connet span {
+				font-size: 16px;
+				/*font-family: "宋体";*/
+			}
+			
+			.pinglun .time span {
+				font-size: 16px;
+				font-family: "微软雅黑";
+			}
+			
+			.pinglun .imgarr {
+				width: 89%;
+				margin-left: 4%;
+			}
+			
+			.pinglun .imgarr img {
+				margin-top: 20px;
+				width: 80px;
+				margin-left: 20px;
+			}
+		</style>
+	</head>
+
+	<body ng-app="app" ng-controller="appCtrl">
+		<!--头部引用-->
+		<div ng-include="'template/header.html'"></div>
+
+		<section>
+			<div class="body">
+				<div class="local">您当前位置:首页>塔山滑雪场><span class="path">滑雪 (工作日) 两小时</span></div>
+				<div class="con">
+					<div class="cover">
+						<div class="pic">
+							<a href="#"><img src="img/detail/1481099879004.jpg" class="pic1" /></a>
+							<div class="box" style="z-index: 9999!important;"></div>
+						</div>
+						<div class="cover-big">
+							<img src="img/detail/1481099879004.jpg" class="big_img" />
+						</div>
+						<div class="small-group">
+							<div class="prev"></div>
+							<div class="next"></div>
+							<div class="pic-list">
+								<ul>
+									<li><img src="img/detail/1481099879004.jpg" /></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="data">
+						<h2 class="title">滑雪 ( 工作日 ) 两小时</h2>
+						<p class="desc">包含景区大门票</p>
+						<ul class="sel-pri">
+							<li>价格:</li>
+							<li class="time">周一至周五两小时</li>
+						</ul>
+						<div class="operat-area" ng-app="app" ng-controller="appCtrl">
+							<div class="text">
+								<span class="now-pri">
+									现价:&nbsp;$
+									<span class="sell-pri">120.00</span>
+								</span>
+								<span class="before-pri">
+									原价:&nbsp;$
+									<span class='before'>150.00</span>
+								</span>
+								<span class="tatle">
+									已有
+									<span class="trueNum">0</span> 人购买了这件商品
+								</span>
+							</div>
+							<ul class="opreation">
+								<li class="count">
+									<span class="count-text">数量:</span>
+									<div class="count-num">
+										<button ng-click="m()" class="btn" ng-disabled="!canclick">-</button><input type="text" ng-model="count" class="inpt" /><button ng-click="p()" class="btn">+</button>
+									</div>
+								</li>
+								<li class="shopcar">加入购物车</li>
+								<li class="buy">立即购买</li>
+							</ul>
+						</div>
+						<div class="share">
+							<i class="share-icon"></i>
+							<span class="share-text">收藏该商品</span>
+							<a href="" class="share-icon-add" style="z-index: 100;">
+								<img src="img/QQ截图20171110141403.png" class="add-pic" />
+							</a>
+							<a href="" class="share-icon-z"></a>
+							<a href="" class="share-icon-x"></a>
+							<a href="" class="share-icon-w"></a>
+							<a href="" class="share-icon-p"></a>
+						</div>
+					</div>
+					<div class="side">
+						<div class="side-first">
+							<a href="">点击进入商家</a>
+						</div>
+						<div class="side-second">
+							<i class="qq"></i> 　 QQ客服1
+						</div>
+						<div class="side-second" style="margin-top: 10px;">
+							<i class="qq"></i> 　 QQ客服2
+						</div>
+					</div>
+				</div>
+				<a href="" id="a"></a>
+				<div class="layui-tab layui-tab-card" id="more">
+					<ul class="layui-tab-title">
+						<li class="layui-this">
+							<a href="#a">商品详情</a>
+						</li>
+						<!--<li>
+							<a href="#b">商品评价</a>
+						</li>
+						<li>
+							<a href="#c">成交记录</a>
+						</li>-->
+					</ul>
+					<div class="layui-tab-content" style="height: 100px;">
+						<div class="layui-tab-item layui-show" style="font-size: 16px;">
+							&nbsp; &nbsp; &nbsp; &nbsp;
+							上善若水，水善利万物而不争，处众人之所恶，故几于道。
+						</div>
+						<!--<div class="layui-tab-item"></div>
+						<div class="layui-tab-item"></div>-->
+					</div>
+				</div>
+				<a href="" id="b"></a>
+				<div class="layui-tab layui-tab-card">
+					<ul class="layui-tab-title">
+						<li class="layui-this">商品评价</li>
+					</ul>
+					<div class="layui-tab-content" style="height: 200px;">
+						<div class="layui-tab-item layui-show">
+							<div class="pinglun">
+								<div class="picture"><img src="img/other/bg.jpg" /></div>
+								<div class="name">
+									昵称：<span><a href="#" style="color: orangered;">上善若水</a></span>
+								</div>
+								<br />
+								<div class="connet">
+									&nbsp; &nbsp; &nbsp; &nbsp;
+									<span>评论，针对于事物进行主观或客观的自我印象阐述。评论易让人听到不利于自己的一面，因此评论的话语容易产生对方的逆反心理。但由于可以较快的表达自己的想法及感受，广为被大众所使用，实则是说者过瘾，听者闹心。</span>
+								</div>
+								<div class="imgarr">
+									<img src="img/1470899677000510.png" />
+									<img src="img/1470707608.png" />
+									<img src="img/147089967700016.png" />
+								</div>
+								<div class="time">
+									<span>2017年11月20日</span>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<a href="" id="c"></a>
+				<div class="layui-tab layui-tab-card">
+					<ul class="layui-tab-title">
+						<li class="layui-this">交易详情</li>
+					</ul>
+					<div class="layui-tab-content" style="height: 200px;">
+						<div class="layui-tab-item layui-show" style="font-size: 16px;">
+							&nbsp; &nbsp; &nbsp; &nbsp;
+							没有交易，更没有详情。
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--<div class="msg">加入购物车成功</div>-->
+		</section>
+
+		<!--尾部引用-->
+		<div ng-include="'./template/footer.html'"></div>
+
+	</body>
+	<script type="text/javascript">
+		//点击加入购物车动画
+		//		console.log()
+		$(function() {
+			var h = $('.pic').offset().top,
+				w = $('.pic').offset().left;
+			var offset = $(".icon-shopcar").offset();
+			$(".shopcar").click(function(event) {
+				//				console.log($(".shopcar").offset().top-offset.top)
+				//				console.log(event.clientY - offset.top)
+				var addcar = $(this);
+				var img = $('.pic1').attr('src');
+				var flyer = $('<img class="u-flyer" src="' + img + '">');
+				if(event.clientY - offset.top >= 400) {
+					flyer.fly({
+						start: {
+							left: event.clientX,
+							top: event.clientY
+						},
+						end: {
+							left: offset.left,
+							top: offset.top,
+							width: 0,
+							height: 0
+						}
+					});
+				} else {
+					flyer.fly({
+						start: {
+							left: event.clientX,
+							top: event.clientY
+						},
+						end: {
+							left: offset.left,
+							top: 0,
+							width: 0,
+							height: 0
+						}
+					});
+				}
+			});
+		});
+
+		//收藏模块
+		$('.share-icon').click(function() {
+			$a = $(this).css('background-image').split('/');
+			$brr = [];
+			for($i = 4; $i < $a.length; $i++) {
+				$brr.push($a[$i]);
+			}
+			$b = $brr.join('/')
+			$c = $b.split('")')[0];
+			if($c == 'img/icon/02.png') {
+				$(this).css('background-image', 'url(img/icon/01.png)');
+			} else {
+				$(this).css('background-image', 'url(img/icon/02.png)');
+			}
+		})
+
+		//点击变色
+		$('.time').click(function() {
+			if($(this).css('color') == 'rgb(255, 165, 0)') {
+				$(this).css({
+					color: '#666666',
+					borderColor: '#D3D3D3'
+				});
+			} else {
+				$(this).css({
+					color: 'orange',
+					borderColor: 'orange'
+				});
+			}
+		})
+
+		$('.share-icon-add').mouseenter(function() {
+			$('.add-pic').css('display', 'block')
+		})
+		$('.share-icon-add').mouseleave(function() {
+			$('.add-pic').css('display', 'none')
+		})
+
+		//放大镜
+		var bbox = document.querySelector('.pic');
+		var bmove = document.querySelector('.box');
+		var bbimg = document.querySelector('.cover-big');
+		var b_bimg = document.querySelector('.big_img');
+		var con = document.querySelector('.con');
+		bbox.onmouseover = function() {
+			bbimg.style.display = "block"
+			bmove.style.display = "block"
+		}
+		bbox.onmouseout = function() {
+			bbimg.style.display = "none"
+			bmove.style.display = "none"
+		}
+		bbox.onmousemove = function(e) {
+			var x = e.pageX
+			var y = e.pageY
+			var t = bbox.offsetTop + con.offsetTop
+			var l = bbox.offsetLeft + con.offsetLeft
+			var _left = x - l - bmove.offsetWidth / 2;
+			var _top = y - t - bmove.offsetHeight / 2;
+			if(_top <= 0)
+				_top = 0
+			else if(_top >= bbox.offsetHeight - bmove.offsetHeight)
+				_top = bbox.offsetHeight - bmove.offsetHeight
+			if(_left <= 0) //滑到box的最左边
+				_left = 0
+			else if(_left >= bbox.offsetWidth - bmove.offsetWidth)
+				_left = bbox.offsetWidth - bmove.offsetWidth
+			bmove.style.top = _top + "px"
+			bmove.style.left = _left + "px"
+			var w = _left / (bbox.offsetWidth - bmove.offsetWidth)
+			var h = _top / (bbox.offsetHeight - bmove.offsetHeight)
+			var b_bimg_top = (b_bimg.offsetHeight - bbimg.offsetHeight) * h
+			var b_bimg_left = (b_bimg.offsetWidth - bbimg.offsetWidth) * w
+			b_bimg.style.top = -b_bimg_top + "px"
+			b_bimg.style.left = -b_bimg_left + "px"
+		}
+		//layui
+		layui.use('element', function() {
+			var $ = layui.jquery,
+				element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+			//触发事件
+			var active = {
+				tabAdd: function() {
+					//新增一个Tab项
+					element.tabAdd('demo', {
+						title: '新选项' + (Math.random() * 1000 | 0) //用于演示
+							,
+						content: '内容' + (Math.random() * 1000 | 0),
+						id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+					})
+				},
+				tabDelete: function(othis) {
+					//删除指定Tab项
+					element.tabDelete('demo', '44'); //删除：“商品管理”
+
+					othis.addClass('layui-btn-disabled');
+				},
+				tabChange: function() {
+					//切换到指定Tab项
+					element.tabChange('demo', '22'); //切换到：用户管理
+				}
+			};
+
+			$('.site-demo-active').on('click', function() {
+				var othis = $(this),
+					type = othis.data('type');
+				active[type] ? active[type].call(this, othis) : '';
+			});
+
+			//Hash地址的定位
+			var layid = location.hash.replace(/^#test=/, '');
+			element.tabChange('test', layid);
+
+			element.on('tab(test)', function(elem) {
+				location.hash = 'test=' + $(this).attr('lay-id');
+			});
+
+		});
+		//
+		var app = angular.module('app', [])
+			.controller('appCtrl', function($scope, $http) {
+				//按钮置灰
+				$scope.canclick = true;
+				$scope.count = 1;
+				$scope.m = function() {
+					$scope.count--;
+					if($scope.count <= 1) {
+						$scope.canclick = false;
+						$scope.count = 1;
+					}
+				}
+				$scope.p = function() {
+					$scope.count++;
+					if($scope.count > 1) {
+						$scope.canclick = true;
+					}
+				}
+			})
+	</script>
+
+</html>
